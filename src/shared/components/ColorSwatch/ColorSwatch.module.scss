@@ -1,22 +1,23 @@
-@use "shared/styles/_mixins" as m;
-@use "shared/styles/_colors.scss" as c;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/effects" as effects;
 
 .swatch {
   display: inline-block;
-  border-radius: 50%;
+  border-radius: effects.$radius-round;
   border: 2px solid rgba(0, 0, 0, 0.08);
   cursor: pointer;
-  @include m.transition(transform, border-color, box-shadow);
+  @include mixins.transition(transform, border-color, box-shadow);
   padding: 0;
 
   &:focus-visible,
   &:hover {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
+    box-shadow: effects.$shadow-focus;
   }
 
   &.active {
-    border-color: c.$black-color;
+    border-color: colors.$black-color;
     transform: scale(1.1);
   }
 }

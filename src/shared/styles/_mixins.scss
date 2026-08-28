@@ -1,7 +1,7 @@
-@use "breakpoints" as b;
+@use "@/shared/styles/breakpoints" as breakpoints;
 @use "sass:map";
 @use "sass:list";
-@use "z-index" as z;
+@use "@/shared/styles/z-index" as zIndex;
 
 /*
 screen types: 
@@ -25,11 +25,11 @@ screen types:
 @mixin media($breakpoint) {
   $value: map.get(
     (
-      mobile: b.$mobile,
-      tablet: b.$tablet,
-      laptop: b.$laptop,
-      desktop: b.$desktop,
-      desktop-xl: b.$desktop-xl,
+      mobile: breakpoints.$mobile,
+      tablet: breakpoints.$tablet,
+      laptop: breakpoints.$laptop,
+      desktop: breakpoints.$desktop,
+      desktop-xl: breakpoints.$desktop-xl,
     ),
     $breakpoint
   );
@@ -101,5 +101,5 @@ screen types:
 }
 
 @mixin z-index($layer) {
-  z-index: z.get($layer);
+  z-index: zIndex.get($layer);
 }

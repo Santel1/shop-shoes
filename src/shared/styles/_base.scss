@@ -1,18 +1,19 @@
-@use "colors" as c;
-@use "variables" as v;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/variables" as variables;
+@use "@/shared/styles/effects" as effects;
 
 :root {
   font-weight: 400;
 
-  color: c.$default-text-color;
+  color: colors.$default-text-color;
 
-  background-color: c.$final-bg-color;
+  background-color: colors.$final-bg-color;
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --accent-color: c.$pink-color;
+  --accent-color: #{colors.$pink-color};
 }
 
 html {
@@ -20,7 +21,7 @@ html {
 }
 
 body {
-  font-family: v.$primary-font-family;
+  font-family: variables.$primary-font-family;
 }
 
 *,
@@ -69,7 +70,7 @@ a:focus {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--accent-color);
-  border-radius: 6px;
+  border-radius: effects.$radius-md;
 }
 
 ::-webkit-scrollbar-track {

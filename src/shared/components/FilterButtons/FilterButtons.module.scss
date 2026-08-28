@@ -1,6 +1,7 @@
-@use "shared/styles/_colors.scss" as c;
-@use "shared/styles/_typography.scss" as t;
-@use "shared/styles/_mixins" as m;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/effects" as effects;
 
 .filterGroup {
   display: flex;
@@ -8,8 +9,8 @@
   min-width: 150px;
   .filterLabel {
     margin-bottom: 5px;
-    font-size: t.$font-size-sm;
-    color: c.$default-text-color;
+    font-size: typography.$font-size-sm;
+    color: colors.$default-text-color;
   }
 
   .sortButtons {
@@ -21,20 +22,20 @@
     padding: 10px 12px;
     background-color: #f2f2f2;
     border: none;
-    border-radius: 6px;
-    font-size: t.$font-size-sm;
+    border-radius: effects.$radius-md;
+    font-size: typography.$font-size-sm;
     cursor: pointer;
-    @include m.transition(background-color);
+    @include mixins.transition(background-color);
     &:hover,
     &:focus-visible {
-      background-color: c.$pink-color;
-      color: c.$white-color;
+      background-color: colors.$pink-color;
+      color: colors.$white-color;
     }
   }
 
   .active {
-    background-color: c.$pink-color;
-    color: c.$white-color;
+    background-color: colors.$pink-color;
+    color: colors.$white-color;
     border: none;
   }
 }

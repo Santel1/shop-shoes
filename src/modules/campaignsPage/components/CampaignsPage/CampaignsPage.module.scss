@@ -1,3 +1,5 @@
+@use "@/shared/styles/effects" as effects;
+
 .section {
   display: flex;
   align-items: center;
@@ -33,7 +35,7 @@
 }
 
 .image {
-  border-radius: 10px;
+  border-radius: effects.$radius-lg;
   object-position: bottom;
 }
 

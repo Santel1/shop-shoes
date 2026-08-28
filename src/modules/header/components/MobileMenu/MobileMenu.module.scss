@@ -1,6 +1,6 @@
-@use "shared/styles/_colors.scss" as c;
-@use "shared/styles/_mixins.scss" as m;
-@use "shared/styles/_typography.scss" as t;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/typography" as typography;
 
 .mobileMenu {
   position: absolute;
@@ -9,17 +9,17 @@
   padding: 20px;
   width: 100%;
   height: 100vh;
-  background-color: c.$bg-white-color;
-  @include m.z-index(mobile-menu);
+  background-color: colors.$bg-white-color;
+  @include mixins.z-index(mobile-menu);
   transform: translateX(-150%);
-  transition: all 0.3s;
-  @include m.media(laptop) {
+  @include mixins.transition(transform);
+  @include mixins.media(laptop) {
     display: none;
   }
 
   &.visible {
     transform: translateX(0px);
-    transition: all 0.3s;
+    @include mixins.transition(transform);
   }
 }
 
@@ -38,16 +38,16 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: c.$black-text-color;
-  font-size: t.$font-size-lg;
+  color: colors.$black-text-color;
+  font-size: typography.$font-size-lg;
   .subMenuIcon {
     display: flex;
     justify-content: flex-end;
     width: 24px;
     height: 24px;
-    stroke: c.$black-color;
+    stroke: colors.$black-color;
     fill: transparent;
-    transition: transform 0.5s ease-in-out;
+    @include mixins.transition(transform);
     &.active {
       transform: rotate(180deg);
     }
@@ -55,17 +55,15 @@
 }
 
 .link {
-  color: c.$black-text-color;
-  font-size: t.$font-size-lg;
+  color: colors.$black-text-color;
+  font-size: typography.$font-size-lg;
 }
 
 .dropdown {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition:
-    max-height 0.3s ease-in-out,
-    opacity 0.3s ease-in-out;
+  @include mixins.transition(max-height, opacity);
 
   &.isOpened {
     max-height: 200px;

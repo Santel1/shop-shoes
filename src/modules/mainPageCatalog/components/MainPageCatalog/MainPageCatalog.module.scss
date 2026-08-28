@@ -1,10 +1,10 @@
-@use "shared/styles/_colors.scss" as c;
-@use "shared/styles/_typography.scss" as t;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
 
 .catalogTitle {
-  font-size: t.$font-size-h2;
-  font-weight: t.$font-weight-semibold;
-  line-height: t.$line-height-h2;
+  font-size: typography.$font-size-h2;
+  font-weight: typography.$font-weight-semibold;
+  line-height: typography.$line-height-h2;
   text-align: center;
   margin-bottom: 40px;
 }

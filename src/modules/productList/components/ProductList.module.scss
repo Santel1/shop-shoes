@@ -1,4 +1,6 @@
-@use "shared/styles/_colors.scss" as c;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/mixins" as mixins;
 
 .catalogList {
   display: flex;
@@ -6,12 +8,12 @@
   justify-content: center;
   gap: 20px;
   .catalogItem {
-    background-color: c.$bg-white-color;
-    border-radius: 10px;
+    background-color: colors.$bg-white-color;
+    border-radius: effects.$radius-lg;
     padding: 20px;
     width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: effects.$shadow-card;
+    @include mixins.transition(transform);
     &:focus-visible,
     &:hover {
       transform: translateY(-5px);

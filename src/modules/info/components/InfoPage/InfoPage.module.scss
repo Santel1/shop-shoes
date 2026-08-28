@@ -1,4 +1,4 @@
-@use "@/shared/styles/colors" as c;
+@use "@/shared/styles/colors" as colors;
 
 .container {
   padding-top: 20px;
@@ -15,7 +15,7 @@
   font-size: 18px;
   text-align: center;
   margin-bottom: 40px;
-  color: c.$default-text-color;
+  color: colors.$default-text-color;
 }
 
 .section {
@@ -29,16 +29,16 @@
   .text {
     font-size: 16px;
     line-height: 1.6;
-    color: c.$default-text-color;
+    color: colors.$default-text-color;
   }
 
   .link {
-    color: c.$black-color;
+    color: colors.$black-color;
     text-decoration: underline;
   }
 
   .link:hover {
-    color: c.$pink-color;
+    color: colors.$pink-color;
   }
   @media (max-width: 768px) {
     .title {

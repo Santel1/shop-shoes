@@ -1,6 +1,6 @@
-@use "shared/styles/_colors.scss" as c;
-@use "shared/styles/_mixins.scss" as m;
-@use "shared/styles/_typography.scss" as t;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/typography" as typography;
 
 .mobileMenuBtn {
   display: flex;
@@ -14,15 +14,15 @@
   .mobileMenuOpen {
     width: 32px;
     height: 32px;
-    stroke: c.$white-color;
+    stroke: colors.$white-color;
   }
   .mobileMenuClose {
     width: 32px;
     height: 32px;
-    fill: c.$black-color;
+    fill: colors.$black-color;
   }
 
-  @include m.media(laptop) {
+  @include mixins.media(laptop) {
     display: none;
   }
 }

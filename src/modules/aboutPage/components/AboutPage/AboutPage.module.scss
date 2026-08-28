@@ -1,5 +1,6 @@
-@use "shared/styles/mixins" as m;
-@use "shared/styles/colors" as c;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/effects" as effects;
 
 .title {
   font-size: 2.5rem;
@@ -24,12 +25,12 @@
   width: 50%;
   height: 300px;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: effects.$radius-lg;
+  box-shadow: effects.$shadow-image;
 }
 
 .image {
-  border-radius: 10px;
+  border-radius: effects.$radius-lg;
 }
 
 .textContainer {
@@ -46,7 +47,7 @@
 .textContainer p {
   font-size: 1rem;
   line-height: 1.6;
-  color: c.$default-text-color;
+  color: colors.$default-text-color;
 }
 
 /* Responsive Design */

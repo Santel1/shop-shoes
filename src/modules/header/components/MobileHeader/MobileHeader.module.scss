@@ -1,12 +1,12 @@
-@use "src/shared/styles/_mixins.scss" as m;
-@use "src/shared/styles/_colors.scss" as c;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/colors" as colors;
 
 .mobileNavWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  @include m.media(laptop) {
+  @include mixins.media(laptop) {
     display: none;
   }
   .link {
@@ -14,105 +14,105 @@
     width: 80px;
     height: 80px;
     align-items: center;
-    color: c.$white-text-color;
-    @include m.media(laptop) {
+    color: colors.$white-text-color;
+    @include mixins.media(laptop) {
       display: none;
     }
   }
   .logo {
     width: 80px;
     height: 80px;
-    fill: c.$white-text-color;
-    transition: 0.25s ease;
+    fill: colors.$white-text-color;
+    @include mixins.transition(fill);
   }
 
   .menuIcon {
-    transition: 0.25s ease;
-    stroke: c.$white-text-color;
+    @include mixins.transition(stroke);
+    stroke: colors.$white-text-color;
   }
 
   .mobileMenuClose {
-    transition: 0.25s ease;
-    fill: c.$white-text-color;
+    @include mixins.transition(fill);
+    fill: colors.$white-text-color;
   }
 
   .cartIcon {
-    transition: 0.25s ease;
-    stroke: c.$white-text-color;
+    @include mixins.transition(stroke);
+    stroke: colors.$white-text-color;
   }
 
   &.isScrolled {
     .logo {
-      fill: c.$black-color;
+      fill: colors.$black-color;
     }
     .link {
-      color: c.$black-color;
+      color: colors.$black-color;
     }
     .menuIcon {
-      stroke: c.$black-color;
+      stroke: colors.$black-color;
     }
     .mobileMenuClose {
-      fill: c.$black-color;
+      fill: colors.$black-color;
     }
     .cartIcon {
-      stroke: c.$black-color;
+      stroke: colors.$black-color;
     }
   }
 
   &.isNotHome {
     .logo {
-      fill: c.$black-color;
+      fill: colors.$black-color;
     }
     .link {
-      color: c.$black-color;
+      color: colors.$black-color;
     }
     .menuIcon {
-      stroke: c.$black-color;
+      stroke: colors.$black-color;
     }
     .mobileMenuClose {
-      fill: c.$black-color;
+      fill: colors.$black-color;
     }
     .cartIcon {
-      stroke: c.$black-color;
+      stroke: colors.$black-color;
     }
   }
 
   &:hover {
     .logo {
-      fill: c.$black-color;
+      fill: colors.$black-color;
     }
     .link {
-      color: c.$black-color;
+      color: colors.$black-color;
     }
     .menuIcon {
-      stroke: c.$black-color;
+      stroke: colors.$black-color;
     }
     .mobileMenuClose {
-      fill: c.$black-color;
+      fill: colors.$black-color;
     }
     .cartIcon {
-      stroke: c.$black-color;
+      stroke: colors.$black-color;
     }
   }
 
   &.menuOpen {
     // background-color: c.$primary-bg-color;
     .logo {
-      fill: c.$black-color;
+      fill: colors.$black-color;
     }
     .link {
-      color: c.$black-color;
+      color: colors.$black-color;
     }
     .menuIcon {
-      stroke: c.$black-color;
+      stroke: colors.$black-color;
     }
     .mobileMenuClose {
-      fill: c.$black-color;
+      fill: colors.$black-color;
     }
     .cartIcon {
-      stroke: c.$black-color;
+      stroke: colors.$black-color;
     }
     position: relative;
-    @include m.z-index(mobile-header);
+    @include mixins.z-index(mobile-header);
   }
 }

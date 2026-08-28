@@ -1,39 +1,36 @@
-@use "shared/styles/colors" as c;
-@use "shared/styles/mixins" as m;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/effects" as effects;
 
 .header {
   position: sticky;
   top: 0;
   left: 0;
-  @include m.z-index(header);
-  --nav-color: #{c.$white-color};
+  @include mixins.z-index(header);
+  --nav-color: #{colors.$white-color};
   background-color: transparent;
   min-width: 320px;
   width: 100%;
   height: 80px;
   padding-inline: 16px;
-  transition:
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
+  @include mixins.transition(background-color, box-shadow);
 
   &:hover {
-    --nav-color: #{c.$black-color};
-    background-color: c.$bg-white-color;
+    --nav-color: #{colors.$black-color};
+    background-color: colors.$bg-white-color;
   }
-  @include m.media(tablet) {
+  @include mixins.media(tablet) {
     padding-inline: 24px;
     height: 92px;
   }
-  @include m.media(desktop) {
+  @include mixins.media(desktop) {
     padding-inline: 32px;
   }
 }
 
 .scrolled {
-  background-color: c.$bg-white-color;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: colors.$bg-white-color;
+  box-shadow: effects.$shadow-soft;
   backdrop-filter: blur(10px);
-  transition:
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
+  @include mixins.transition(background-color, box-shadow);
 }

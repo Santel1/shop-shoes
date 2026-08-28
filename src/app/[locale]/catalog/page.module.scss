@@ -1,5 +1,7 @@
-@use "shared/styles/_colors.scss" as c;
-@use "shared/styles/_typography.scss" as t;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/effects" as effects;
 
 .filterForm {
   width: 100%;
@@ -19,7 +21,7 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #333;
+  color: colors.$black-color;
 }
 
 .btnWrapper {
@@ -33,11 +35,11 @@
   padding: 10px 20px;
   align-items: center;
   border: none;
-  border-radius: 6px;
+  border-radius: effects.$radius-md;
   font-size: 16px;
-  color: rgb(0, 0, 0);
+  color: colors.$black-color;
   cursor: pointer;
-  transition: background-color 0.3s;
+  @include mixins.transition(background-color);
 }
 
 .catalog {

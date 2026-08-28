@@ -1,20 +1,19 @@
-@use "shared/styles/colors" as c;
-@use "shared/styles/mixins" as m;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/effects" as effects;
 
 .overlay {
   display: none;
-  @include m.media(tablet) {
+  @include mixins.media(tablet) {
     display: block;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    @include m.z-index(cart);
-    background-color: c.$bg-overlay-color;
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease;
+    @include mixins.z-index(cart);
+    background-color: colors.$bg-overlay-color;
+    @include mixins.transition(opacity, visibility);
     opacity: 0;
     visibility: hidden;
 
@@ -33,21 +32,19 @@
   right: 0;
   height: 100dvh;
   width: 100%;
-  @include m.z-index(cart);
+  @include mixins.z-index(cart);
   padding: 20px;
-  background-color: c.$bg-white-color;
+  background-color: colors.$bg-white-color;
   opacity: 0;
   visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+  @include mixins.transition(opacity, visibility);
 
   &.visible {
     opacity: 1;
     visibility: visible;
   }
 
-  @include m.media(tablet) {
+  @include mixins.media(tablet) {
     width: 475px;
   }
 }
@@ -110,9 +107,9 @@
 .swatchCircle {
   width: 20px;
   height: 20px;
-  border-radius: 50%;
+  border-radius: effects.$radius-round;
   border: 1px solid #ddd;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow: effects.$shadow-swatch;
 }
 
 .colorLabel {
@@ -167,7 +164,7 @@
     content: "";
     width: 100%;
     height: 1px;
-    background-color: c.$bg-black-color;
+    background-color: colors.$bg-black-color;
     position: absolute;
     bottom: -1px;
   }
@@ -176,9 +173,9 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: c.$bg-light-gray-color;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: colors.$bg-light-gray-color;
+  border-radius: effects.$radius-md;
+  box-shadow: effects.$shadow-soft;
 }
 .cartSummary {
   display: flex;
@@ -197,7 +194,7 @@
 .cartMessage {
   font-size: 16px;
   margin-bottom: 10px;
-  color: c.$black-color; /* Red color for message */
+  color: colors.$black-color; /* Red color for message */
 }
 .cartActions {
   display: flex;
@@ -209,20 +206,18 @@
   align-items: center;
   width: 100%;
   padding: 10px;
-  background-color: c.$bg-white-color;
-  color: c.$black-color;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: colors.$bg-white-color;
+  color: colors.$black-color;
+  box-shadow: effects.$shadow-soft;
   text-decoration: none;
   font-size: 18px;
-  border-radius: 5px;
+  border-radius: effects.$radius-md;
   cursor: pointer;
   margin-bottom: 10px;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  @include mixins.transition(background-color, color);
   &:hover {
-    background-color: c.$bg-pink-color;
-    color: c.$white-color;
+    background-color: colors.$bg-pink-color;
+    color: colors.$white-color;
   }
 }
 // .emptyCart {

@@ -1,5 +1,5 @@
-@use "shared/styles/colors" as c;
-@use "shared/styles/mixins" as m;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/mixins" as mixins;
 
 .cartBtn {
   display: flex;
@@ -16,7 +16,7 @@
   width: 32px;
   height: 32px;
   fill: transparent;
-  stroke: c.$white-color;
+  stroke: colors.$white-color;
 }
 .cartCount {
   position: absolute;

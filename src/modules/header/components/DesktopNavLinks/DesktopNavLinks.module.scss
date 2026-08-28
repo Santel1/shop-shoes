@@ -1,10 +1,11 @@
-@use "shared/styles/mixins" as m;
-@use "shared/styles/colors" as c;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/effects" as effects;
 
 .nav {
   display: none;
 
-  @include m.media(laptop) {
+  @include mixins.media(laptop) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +14,7 @@
 
     font-size: 18px;
 
-    @include m.z-index(navigation);
+    @include mixins.z-index(navigation);
 
     .navListLeft,
     .navListRight {
@@ -45,11 +46,11 @@
     .link {
       display: flex;
       align-items: center;
-      color: var(--nav-color, c.$white-color);
+      color: var(--nav-color, colors.$white-color);
       text-decoration: none;
       text-transform: uppercase;
 
-      transition: color 0.3s ease;
+      @include mixins.transition(color);
     }
 
     .logoLink {
@@ -67,71 +68,71 @@
       width: 92px;
       height: 92px;
 
-      fill: var(--nav-color, c.$white-color);
+      fill: var(--nav-color, colors.$white-color);
 
-      transition: fill 0.3s ease;
+      @include mixins.transition(fill);
     }
 
     .userIcon {
       width: 28px;
       height: 28px;
 
-      fill: var(--nav-color, c.$white-color);
+      fill: var(--nav-color, colors.$white-color);
 
-      transition: fill 0.3s ease;
+      @include mixins.transition(fill);
     }
 
     .cartIcon {
-      transition: stroke 0.3s ease;
-      stroke: var(--nav-color, c.$white-color);
+      @include mixins.transition(stroke);
+      stroke: var(--nav-color, colors.$white-color);
     }
 
     &:hover,
     &.isScrolled,
     &.isNotHome {
       .link {
-        color: c.$black-color;
+        color: colors.$black-color;
       }
 
       .logoIcon {
-        fill: c.$black-color;
+        fill: colors.$black-color;
       }
 
       .userIcon {
-        fill: c.$black-color;
+        fill: colors.$black-color;
       }
 
       .cartIcon {
-        stroke: c.$black-color;
+        stroke: colors.$black-color;
       }
 
       .link:hover {
-        color: c.$pink-color;
+        color: colors.$pink-color;
       }
 
       .logoLink:hover .logoIcon {
-        fill: c.$pink-color;
+        fill: colors.$pink-color;
       }
 
       .userIcon:hover {
-        fill: c.$pink-color;
+        fill: colors.$pink-color;
       }
 
       .cartIcon:hover {
-        stroke: c.$pink-color;
+        stroke: colors.$pink-color;
       }
     }
 
     .navListItem:hover > .link {
-      color: c.$pink-color;
+      color: colors.$pink-color;
     }
 
     .navListItem:hover .userIcon {
-      fill: c.$pink-color;
+      fill: colors.$pink-color;
     }
 
     .navListItem:hover .cartIcon {
-      stroke: c.$pink-color;
+      stroke: colors.$pink-color;
     }
   }
 }
@@ -151,16 +152,14 @@
   right: 0;
   width: auto;
 
-  @include m.z-index(submenu);
+  @include mixins.z-index(submenu);
 
   pointer-events: none;
   transform: scaleY(0);
   transform-origin: top;
   opacity: 0;
 
-  transition:
-    transform 0.35s ease,
-    opacity 0.35s ease;
+  @include mixins.transition(transform, opacity);
 }
 
 .submenuBackdrop.isOpen {
@@ -170,7 +169,7 @@
 }
 
 .submenuPanel {
-  background-color: c.$bg-white-color;
+  background-color: colors.$bg-white-color;
 }
 
 .submenuColumn {
@@ -183,15 +182,15 @@
 
 .submenuLink {
   display: block;
-  color: c.$black-text-color;
+  color: colors.$black-text-color;
   text-decoration: none;
   text-transform: uppercase;
 
-  border-radius: 4px;
+  border-radius: effects.$radius-sm;
 
-  @include m.transition(color);
+  @include mixins.transition(color);
 
   &:hover {
-    color: c.$pink-color;
+    color: colors.$pink-color;
   }
 }

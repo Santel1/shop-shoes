@@ -1,12 +1,13 @@
-@use "shared/styles/_colors.scss" as c;
-@use "shared/styles/_typography.scss" as t;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
+@use "@/shared/styles/effects" as effects;
 
 .image {
   width: 100%;
   aspect-ratio: 1 / 1;
   margin-bottom: 8px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: effects.$radius-lg;
 }
 
 .colors {
@@ -17,8 +18,8 @@
   .swatch {
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    border: 1px solid c.$border-gray-color;
+    border-radius: effects.$radius-round;
+    border: 1px solid colors.$border-gray-color;
   }
   .more {
     display: flex;
@@ -26,20 +27,20 @@
     justify-content: center;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    background: c.$border-gray-color;
-    font-size: t.$font-size-xs;
-    color: c.$black-text-color;
+    border-radius: effects.$radius-round;
+    background: colors.$border-gray-color;
+    font-size: typography.$font-size-xs;
+    color: colors.$black-text-color;
   }
 }
 
 .productLink {
   display: inline-block;
-  font-size: t.$font-size-md;
-  font-weight: t.$font-weight-semibold;
+  font-size: typography.$font-size-md;
+  font-weight: typography.$font-weight-semibold;
   margin-bottom: 8px;
 }
 
 .price {
-  font-size: t.$font-size-sm;
+  font-size: typography.$font-size-sm;
 }

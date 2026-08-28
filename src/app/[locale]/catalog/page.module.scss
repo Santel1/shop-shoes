@@ -1,0 +1,45 @@
+@use "shared/styles/_colors.scss" as c;
+@use "shared/styles/_typography.scss" as t;
+
+.filterForm {
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.filterTitle {
+  flex-basis: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.filterResetButton {
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.catalog {
+  padding: 80px 0;
+}

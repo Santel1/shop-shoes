@@ -1,0 +1,197 @@
+@use "shared/styles/mixins" as m;
+@use "shared/styles/colors" as c;
+
+.nav {
+  display: none;
+
+  @include m.media(laptop) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    font-size: 18px;
+
+    @include m.z-index(navigation);
+
+    .navListLeft,
+    .navListRight {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .navListLeft {
+      .link:hover {
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -36px;
+          left: 0;
+          width: 100%;
+          height: 40px;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .navListItem {
+      position: relative;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      color: var(--nav-color, c.$white-color);
+      text-decoration: none;
+      text-transform: uppercase;
+
+      transition: color 0.3s ease;
+    }
+
+    .logoLink {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 92px;
+      height: 92px;
+
+      flex-shrink: 0;
+    }
+
+    .logoIcon {
+      width: 92px;
+      height: 92px;
+
+      fill: var(--nav-color, c.$white-color);
+
+      transition: fill 0.3s ease;
+    }
+
+    .userIcon {
+      width: 28px;
+      height: 28px;
+
+      fill: var(--nav-color, c.$white-color);
+
+      transition: fill 0.3s ease;
+    }
+
+    .cartIcon {
+      transition: stroke 0.3s ease;
+      stroke: var(--nav-color, c.$white-color);
+    }
+
+    &:hover,
+    &.isScrolled,
+    &.isNotHome {
+      .link {
+        color: c.$black-color;
+      }
+
+      .logoIcon {
+        fill: c.$black-color;
+      }
+
+      .userIcon {
+        fill: c.$black-color;
+      }
+
+      .cartIcon {
+        stroke: c.$black-color;
+      }
+
+      .link:hover {
+        color: c.$pink-color;
+      }
+
+      .logoLink:hover .logoIcon {
+        fill: c.$pink-color;
+      }
+
+      .userIcon:hover {
+        fill: c.$pink-color;
+      }
+
+      .cartIcon:hover {
+        stroke: c.$pink-color;
+      }
+    }
+
+    .navListItem:hover > .link {
+      color: c.$pink-color;
+    }
+
+    .navListItem:hover .userIcon {
+      fill: c.$pink-color;
+    }
+
+    .navListItem:hover .cartIcon {
+      stroke: c.$pink-color;
+    }
+  }
+}
+
+/* =========================
+   SUBMENU
+   ========================= */
+
+.submenuArea {
+  position: static;
+}
+
+.submenuBackdrop {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: auto;
+
+  @include m.z-index(submenu);
+
+  pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.submenuBackdrop.isOpen {
+  pointer-events: auto;
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.submenuPanel {
+  background-color: c.$bg-white-color;
+}
+
+.submenuColumn {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  padding: 18px 32px;
+}
+
+.submenuLink {
+  display: block;
+  color: c.$black-text-color;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border-radius: 4px;
+
+  @include m.transition(color);
+
+  &:hover {
+    color: c.$pink-color;
+  }
+}

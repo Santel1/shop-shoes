@@ -1,0 +1,105 @@
+@use "breakpoints" as b;
+@use "sass:map";
+@use "sass:list";
+@use "z-index" as z;
+
+/*
+screen types: 
+    mobile,
+    to-tablet
+    tablet,
+    to-desktop
+    desktop,
+*/
+
+@mixin transition($props...) {
+  $result: ();
+
+  @each $prop in $props {
+    $result: list.append($result, #{$prop} 0.3s ease, comma);
+  }
+
+  transition: $result;
+}
+
+@mixin media($breakpoint) {
+  $value: map.get(
+    (
+      mobile: b.$mobile,
+      tablet: b.$tablet,
+      laptop: b.$laptop,
+      desktop: b.$desktop,
+      desktop-xl: b.$desktop-xl,
+    ),
+    $breakpoint
+  );
+
+  @if $value {
+    @media screen and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Нет такого брейкпоинта: `#{$breakpoint}`";
+  }
+}
+// @mixin media($_screen) {
+//   @if $_screen == mobile {
+//     @media screen and (min-width: b.$mobile) {
+//       @content;
+//     }
+//   } @else if $_screen == to-tablet {
+//     @media screen and (max-width: b.$to-tablet) {
+//       @content;
+//     }
+//   } @else if $_screen == tablet {
+//     @media screen and (min-width: b.$tablet) {
+//       @content;
+//     }
+//   } @else if $_screen == to-desktop {
+//     @media screen and (max-width: b.$to-desktop) {
+//       @content;
+//     }
+//   } @else if $_screen == desktop {
+//     @media screen and (min-width: b.$desktop) {
+//       @content;
+//     }
+//   }
+// }
+
+@mixin font($_fsz, $_lnh) {
+  font-size: #{$_fsz}px;
+  line-height: calc($_lnh / $_fsz);
+}
+
+@mixin colored-button-effects-styles(
+  $_original_bg_color,
+  $_text_color: $light_color
+) {
+  &:hover,
+  &:focus {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(31, 31, 31, 0.1) 0%,
+        rgba(31, 31, 31, 0.1) 100%
+      ),
+      $_original_bg_color;
+    color: $_text_color;
+  }
+}
+
+@mixin cut-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Кількість видимих рядків */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+@mixin animation-rules($_prop: all, $_duration: "0.3s") {
+  transition: $_prop $_duration ease;
+}
+
+@mixin z-index($layer) {
+  z-index: z.get($layer);
+}

@@ -1,0 +1,110 @@
+@use "shared/styles/mixins" as m;
+@use "shared/styles/colors" as c;
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2b2b2b;
+  font-weight: bold;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 30px;
+  &:nth-child(2n) {
+    flex-direction: row-reverse;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 50%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  border-radius: 10px;
+}
+
+.textContainer {
+  width: 50%;
+  padding: 20px;
+}
+
+.textContainer h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #2b2b2b;
+}
+
+.textContainer p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: c.$default-text-color;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .section {
+    flex-direction: column;
+    gap: 20px;
+
+    &:nth-child(even) {
+      flex-direction: column;
+    }
+  }
+
+  .imageContainer,
+  .textContainer {
+    width: 100%;
+    height: 250px;
+  }
+
+  .textContainer {
+    padding: 10px;
+  }
+
+  .textContainer h2 {
+    font-size: 1.5rem;
+  }
+
+  .textContainer p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .section {
+    margin-bottom: 30px;
+  }
+
+  .imageContainer,
+  .textContainer {
+    height: 200px;
+  }
+
+  .textContainer h2 {
+    font-size: 1.3rem;
+  }
+
+  .textContainer p {
+    font-size: 0.85rem;
+  }
+}

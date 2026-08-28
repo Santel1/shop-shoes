@@ -1,0 +1,118 @@
+@use "src/shared/styles/_mixins.scss" as m;
+@use "src/shared/styles/_colors.scss" as c;
+
+.mobileNavWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  @include m.media(laptop) {
+    display: none;
+  }
+  .link {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    color: c.$white-text-color;
+    @include m.media(laptop) {
+      display: none;
+    }
+  }
+  .logo {
+    width: 80px;
+    height: 80px;
+    fill: c.$white-text-color;
+    transition: 0.25s ease;
+  }
+
+  .menuIcon {
+    transition: 0.25s ease;
+    stroke: c.$white-text-color;
+  }
+
+  .mobileMenuClose {
+    transition: 0.25s ease;
+    fill: c.$white-text-color;
+  }
+
+  .cartIcon {
+    transition: 0.25s ease;
+    stroke: c.$white-text-color;
+  }
+
+  &.isScrolled {
+    .logo {
+      fill: c.$black-color;
+    }
+    .link {
+      color: c.$black-color;
+    }
+    .menuIcon {
+      stroke: c.$black-color;
+    }
+    .mobileMenuClose {
+      fill: c.$black-color;
+    }
+    .cartIcon {
+      stroke: c.$black-color;
+    }
+  }
+
+  &.isNotHome {
+    .logo {
+      fill: c.$black-color;
+    }
+    .link {
+      color: c.$black-color;
+    }
+    .menuIcon {
+      stroke: c.$black-color;
+    }
+    .mobileMenuClose {
+      fill: c.$black-color;
+    }
+    .cartIcon {
+      stroke: c.$black-color;
+    }
+  }
+
+  &:hover {
+    .logo {
+      fill: c.$black-color;
+    }
+    .link {
+      color: c.$black-color;
+    }
+    .menuIcon {
+      stroke: c.$black-color;
+    }
+    .mobileMenuClose {
+      fill: c.$black-color;
+    }
+    .cartIcon {
+      stroke: c.$black-color;
+    }
+  }
+
+  &.menuOpen {
+    // background-color: c.$primary-bg-color;
+    .logo {
+      fill: c.$black-color;
+    }
+    .link {
+      color: c.$black-color;
+    }
+    .menuIcon {
+      stroke: c.$black-color;
+    }
+    .mobileMenuClose {
+      fill: c.$black-color;
+    }
+    .cartIcon {
+      stroke: c.$black-color;
+    }
+    position: relative;
+    @include m.z-index(mobile-header);
+  }
+}

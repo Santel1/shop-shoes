@@ -1,0 +1,23 @@
+@use "sass:list";
+
+$layers: (
+  hero-video,
+  hero-overlay,
+  hero-content,
+  mobile-menu,
+  mobile-header,
+  header,
+  navigation,
+  cart,
+  submenu
+);
+
+@function get($layer) {
+  $index: list.index($layers, $layer);
+
+  @if $index == null {
+    @error "Unknown z-index layer: `#{$layer}`";
+  }
+
+  @return $index;
+}

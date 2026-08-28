@@ -1,0 +1,33 @@
+@use "shared/styles/colors" as c;
+@use "shared/styles/mixins" as m;
+
+.cartBtn {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.cartIcon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  fill: transparent;
+  stroke: c.$white-color;
+}
+.cartCount {
+  position: absolute;
+  top: calc(50% - 2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.iconUser {
+  width: 32px;
+  height: 32px;
+}

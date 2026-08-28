@@ -1,0 +1,229 @@
+@use "shared/styles/colors" as c;
+@use "shared/styles/mixins" as m;
+
+.overlay {
+  display: none;
+  @include m.media(tablet) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include m.z-index(cart);
+    background-color: c.$bg-overlay-color;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.cartWrapper {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: 100%;
+  @include m.z-index(cart);
+  padding: 20px;
+  background-color: c.$bg-white-color;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include m.media(tablet) {
+    width: 475px;
+  }
+}
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.closeIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.cartTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  width: 100%;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+.cartItem {
+  display: flex;
+}
+.cartItemImage {
+  width: 150px;
+}
+.cartItemDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+.cartItemName {
+  margin-bottom: 10px;
+}
+.cartItemColor {
+  margin-bottom: 5px;
+}
+
+.colorRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.swatchCircle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.colorLabel {
+  margin: 0;
+  font-size: 14px;
+}
+
+.cartItemInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.counter {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ccc;
+}
+.counterBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+// .cartItemQuantity {
+// }
+.cartItemInfo {
+  margin-bottom: 15px;
+}
+// .cartItemPrice {
+// }
+.cartItemRemoveBtn {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  align-self: flex-start;
+  align-items: center;
+  background-color: transparent;
+  font-size: 15px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: c.$bg-black-color;
+    position: absolute;
+    bottom: -1px;
+  }
+}
+.cartSummaryWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: c.$bg-light-gray-color;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.cartSummary {
+  display: flex;
+  justify-content: space-between;
+}
+.totalLabel {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.totalPrice {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.cartMessage {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: c.$black-color; /* Red color for message */
+}
+.cartActions {
+  display: flex;
+  flex-direction: column;
+}
+.cartLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: c.$bg-white-color;
+  color: c.$black-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  &:hover {
+    background-color: c.$bg-pink-color;
+    color: c.$white-color;
+  }
+}
+// .emptyCart {
+// }

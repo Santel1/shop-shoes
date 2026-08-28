@@ -1,0 +1,39 @@
+@use "shared/styles/colors" as c;
+@use "shared/styles/mixins" as m;
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  @include m.z-index(header);
+  --nav-color: #{c.$white-color};
+  background-color: transparent;
+  min-width: 320px;
+  width: 100%;
+  height: 80px;
+  padding-inline: 16px;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    --nav-color: #{c.$black-color};
+    background-color: c.$bg-white-color;
+  }
+  @include m.media(tablet) {
+    padding-inline: 24px;
+    height: 92px;
+  }
+  @include m.media(desktop) {
+    padding-inline: 32px;
+  }
+}
+
+.scrolled {
+  background-color: c.$bg-white-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}

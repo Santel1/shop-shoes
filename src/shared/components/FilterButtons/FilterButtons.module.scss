@@ -1,0 +1,40 @@
+@use "shared/styles/_colors.scss" as c;
+@use "shared/styles/_typography.scss" as t;
+@use "shared/styles/_mixins" as m;
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  .filterLabel {
+    margin-bottom: 5px;
+    font-size: t.$font-size-sm;
+    color: c.$default-text-color;
+  }
+
+  .sortButtons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .sortButton {
+    padding: 10px 12px;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 6px;
+    font-size: t.$font-size-sm;
+    cursor: pointer;
+    @include m.transition(background-color);
+    &:hover,
+    &:focus-visible {
+      background-color: c.$pink-color;
+      color: c.$white-color;
+    }
+  }
+
+  .active {
+    background-color: c.$pink-color;
+    color: c.$white-color;
+    border: none;
+  }
+}

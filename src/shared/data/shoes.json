@@ -1,0 +1,521 @@
+[
+  {
+    "id": "1",
+    "category": "shoes",
+    "name": "Elegant Heels",
+    "price": 79.99,
+    "quantity": 1,
+    "imageUrl": "/images/1.jpg",
+    "description": "Step into sophistication with our Elegant Heels, crafted from premium leather for a sleek and timeless look. Perfect for formal occasions or adding a touch of class to your everyday style, these heels offer both comfort and durability with a cushioned insole and sturdy heel design.",
+    "isNew": true,
+    "isBestseller": false,
+    "isSale": true,
+    "color": ["black", "red", "beige"],
+    "colorOptions": [
+      {
+        "name": "black",
+        "label": "Black",
+        "type": "solid",
+        "value": "#000000"
+      },
+      { "name": "red", "label": "Red", "type": "solid", "value": "#ff2d2d" },
+      { "name": "beige", "label": "Beige", "type": "solid", "value": "#f5f5dc" }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "1-black-38",
+        "colorVariant": "black",
+        "sizeVariant": 38,
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "1-black-39",
+        "colorVariant": "black",
+        "sizeVariant": 39,
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "1-black-43",
+        "colorVariant": "black",
+        "sizeVariant": 43,
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "1-red-40",
+        "colorVariant": "red",
+        "sizeVariant": 40,
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "1-beige-37",
+        "colorVariant": "beige",
+        "sizeVariant": 37,
+        "stockVariant": 5,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "shoes",
+    "name": "Low Shoes",
+    "price": 59.49,
+    "quantity": 1,
+    "imageUrl": "/images/2.jpg",
+    "description": "Our Low Shoes combine minimalist design with everyday functionality. Handcrafted from soft leather, they provide a snug fit and all-day comfort. Ideal for casual outings or a busy day at work, these shoes are a versatile addition to any wardrobe.",
+    "color": ["white", "pink", "leopard", "zebra"],
+    "colorOptions": [
+      {
+        "name": "white",
+        "label": "White",
+        "type": "solid",
+        "value": "#f8f8f8"
+      },
+      { "name": "pink", "label": "Pink", "type": "solid", "value": "#f06292" },
+      {
+        "name": "leopard",
+        "label": "Leopard",
+        "type": "pattern",
+        "value": "/images/patterns/leopard.jpg"
+      },
+      {
+        "name": "zebra",
+        "label": "Zebra",
+        "type": "pattern",
+        "value": "/images/patterns/zebra.jpg"
+      }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "2-white-38",
+        "colorVariant": "white",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "2-pink-40",
+        "colorVariant": "pink",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "shoes",
+    "name": "Open Clogs",
+    "price": 99.99,
+    "quantity": 1,
+    "imageUrl": "/images/3.jpg",
+    "description": "Embrace effortless style with our Open Clogs, designed for those who value both fashion and comfort. Made from high-quality leather with an open-toe design, these clogs are perfect for warm days, offering breathability and a chic, earthy aesthetic.",
+    "color": ["brown", "black", "olive"],
+    "colorOptions": [
+      {
+        "name": "brown",
+        "label": "Brown",
+        "type": "solid",
+        "value": "#8b4513"
+      },
+      {
+        "name": "black",
+        "label": "Black",
+        "type": "solid",
+        "value": "#000000"
+      },
+      { "name": "olive", "label": "Olive", "type": "solid", "value": "#808000" }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "3-brown-38",
+        "colorVariant": "brown",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "3-black-40",
+        "colorVariant": "black",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "category": "shoes",
+    "name": "Clogs",
+    "price": 45.0,
+    "quantity": 1,
+    "imageUrl": "/images/4.jpg",
+    "description": "Our classic Clogs bring a touch of elegance to casual wear. Crafted with premium leather and a minimalist design, they’re perfect for slipping on and off with ease. The lightweight construction and cushioned sole ensure comfort for all-day wear.",
+    "color": ["nude", "white", "gold"],
+    "colorOptions": [
+      { "name": "nude", "label": "Nude", "type": "solid", "value": "#f2d6c6" },
+      {
+        "name": "white",
+        "label": "White",
+        "type": "solid",
+        "value": "#ffffff"
+      },
+      { "name": "gold", "label": "Gold", "type": "solid", "value": "#d4af37" }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "4-nude-38",
+        "colorVariant": "nude",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "4-white-40",
+        "colorVariant": "white",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "category": "shoes",
+    "name": "Trendy Sandals",
+    "price": 39.99,
+    "quantity": 1,
+    "imageUrl": "/images/5.jpg",
+    "color": ["yellow", "turquoise", "coral"],
+    "colorOptions": [
+      {
+        "name": "yellow",
+        "label": "Yellow",
+        "type": "solid",
+        "value": "#ffd600"
+      },
+      {
+        "name": "turquoise",
+        "label": "Turquoise",
+        "type": "solid",
+        "value": "#40E0D0"
+      },
+      { "name": "coral", "label": "Coral", "type": "solid", "value": "#ff7f50" }
+    ],
+    "description": "Make a bold statement with our Trendy Sandals, featuring vibrant colors and a modern design. Handmade from durable leather, these sandals offer a comfortable fit with adjustable straps, making them ideal for summer adventures or a stylish day out.",
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "5-yellow-38",
+        "colorVariant": "yellow",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "5-turquoise-40",
+        "colorVariant": "turquoise",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "category": "shoes",
+    "name": "Clogs",
+    "price": 120.0,
+    "quantity": 1,
+    "imageUrl": "/images/6.jpg",
+    "description": "Elevate your footwear collection with these luxurious Clogs, crafted from the finest leather for a refined look. Their sleek design and sturdy sole provide both style and support, making them a perfect choice for both casual and semi-formal occasions.",
+    "color": ["black", "white", "burgundy"],
+    "colorOptions": [
+      {
+        "name": "black",
+        "label": "Black",
+        "type": "solid",
+        "value": "#000000"
+      },
+      {
+        "name": "white",
+        "label": "White",
+        "type": "solid",
+        "value": "#ffffff"
+      },
+      {
+        "name": "burgundy",
+        "label": "Burgundy",
+        "type": "solid",
+        "value": "#800020"
+      }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "6-black-38",
+        "colorVariant": "black",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "6-white-40",
+        "colorVariant": "white",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "category": "shoes",
+    "name": "Low Shoes",
+    "price": 149.99,
+    "quantity": 1,
+    "imageUrl": "/images/7.jpg",
+    "description": "Our premium Low Shoes are designed for the modern minimalist. Made from top-grain leather, they offer a polished look with exceptional comfort. Perfect for pairing with both casual and business attire, these shoes are a must-have for any wardrobe.",
+    "color": ["beige", "dark green", "charcoal"],
+    "colorOptions": [
+      {
+        "name": "beige",
+        "label": "Beige",
+        "type": "solid",
+        "value": "#f5f5dc"
+      },
+      {
+        "name": "dark green",
+        "label": "Dark Green",
+        "type": "solid",
+        "value": "#006400"
+      },
+      {
+        "name": "charcoal",
+        "label": "Charcoal",
+        "type": "solid",
+        "value": "#36454f"
+      }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "7-beige-38",
+        "colorVariant": "beige",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "7-dark-green-40",
+        "colorVariant": "dark green",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "category": "shoes",
+    "name": "Leather Flats",
+    "price": 110.5,
+    "quantity": 1,
+    "imageUrl": "/images/8.jpg",
+    "description": "Experience timeless elegance with our Leather Flats, handcrafted from soft, durable leather. These flats provide a snug fit and cushioned support, making them ideal for long days on your feet. Their classic design pairs beautifully with any outfit.",
+    "color": ["black", "brown", "gray"],
+    "colorOptions": [
+      {
+        "name": "black",
+        "label": "Black",
+        "type": "solid",
+        "value": "#000000"
+      },
+      {
+        "name": "brown",
+        "label": "Brown",
+        "type": "solid",
+        "value": "#8b4513"
+      },
+      { "name": "gray", "label": "Gray", "type": "solid", "value": "#808080" }
+    ],
+    "size": [46],
+    "variants": [
+      {
+        "idVariant": "8-black-46",
+        "colorVariant": "black",
+        "sizeVariant": 46,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "8-brown-46",
+        "colorVariant": "brown",
+        "sizeVariant": 46,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "category": "shoes",
+    "name": "Flats",
+    "price": 89.99,
+    "quantity": 1,
+    "imageUrl": "/images/9.jpg",
+    "description": "Add a pop of color to your collection with our stylish Flats. Crafted from high-quality leather, they offer a comfortable fit and a lightweight feel. Perfect for everyday wear, these flats bring both versatility and charm to your look.",
+    "color": ["pink", "gray", "teal"],
+    "colorOptions": [
+      { "name": "pink", "label": "Pink", "type": "solid", "value": "#f06292" },
+      { "name": "gray", "label": "Gray", "type": "solid", "value": "#808080" },
+      { "name": "teal", "label": "Teal", "type": "solid", "value": "#008080" }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "9-pink-38",
+        "colorVariant": "pink",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "9-gray-40",
+        "colorVariant": "gray",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "category": "shoes",
+    "name": "Leather Loafers",
+    "price": 70.0,
+    "quantity": 1,
+    "imageUrl": "/images/10.jpg",
+    "description": "Our Leather Loafers are the epitome of classic style. Handmade from premium leather, they feature a sleek design with a comfortable fit. Ideal for both formal and casual settings, these loafers are a timeless addition to your footwear collection.",
+    "color": ["black", "navy", "brown"],
+    "colorOptions": [
+      {
+        "name": "black",
+        "label": "Black",
+        "type": "solid",
+        "value": "#000000"
+      },
+      { "name": "navy", "label": "Navy", "type": "solid", "value": "#000080" },
+      { "name": "brown", "label": "Brown", "type": "solid", "value": "#8b4513" }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "10-black-38",
+        "colorVariant": "black",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "10-navy-40",
+        "colorVariant": "navy",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "category": "shoes",
+    "name": "Decorative Sandals",
+    "price": 55.25,
+    "quantity": 1,
+    "imageUrl": "/images/11.jpg",
+    "description": "Step into summer with our Decorative Sandals, featuring intricate details and vibrant colors. Made from soft leather with adjustable straps, they offer both style and comfort. Perfect for beach outings or casual strolls, these sandals are a seasonal favorite.",
+    "color": ["white", "sky blue", "peach"],
+    "colorOptions": [
+      {
+        "name": "white",
+        "label": "White",
+        "type": "solid",
+        "value": "#ffffff"
+      },
+      {
+        "name": "sky blue",
+        "label": "Sky Blue",
+        "type": "solid",
+        "value": "#87CEEB"
+      },
+      { "name": "peach", "label": "Peach", "type": "solid", "value": "#FFDAB9" }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "11-white-38",
+        "colorVariant": "white",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "11-sky-blue-40",
+        "colorVariant": "sky blue",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "category": "bags",
+    "name": "Leather Loafers",
+    "price": 47.99,
+    "quantity": 1,
+    "imageUrl": "/images/5.jpg",
+    "description": "Our affordable Leather Loafers offer a blend of style and practicality. Crafted from durable leather, they provide a lightweight feel and a versatile design. Whether for work or leisure, these loafers are a reliable choice for any occasion.",
+    "color": ["beige", "light gray", "mint"],
+    "colorOptions": [
+      {
+        "name": "beige",
+        "label": "Beige",
+        "type": "solid",
+        "value": "#f5f5dc"
+      },
+      {
+        "name": "light gray",
+        "label": "Light Gray",
+        "type": "solid",
+        "value": "#d3d3d3"
+      },
+      { "name": "mint", "label": "Mint", "type": "solid", "value": "#98FF98" }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "variants": [
+      {
+        "idVariant": "12-beige-38",
+        "colorVariant": "beige",
+        "sizeVariant": 38,
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "12-light-gray-40",
+        "colorVariant": "light gray",
+        "sizeVariant": 40,
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  }
+]

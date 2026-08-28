@@ -1,0 +1,53 @@
+@use "shared/styles/breakpoints" as b;
+@use "shared/styles/mixins" as m;
+
+// .container {
+//   padding: 0 12px;
+//   margin: 0 auto;
+//   @include m.media(mobile) {
+//     width: b.$mobile;
+//     padding: 0 16px;
+//   }
+
+//   @include m.media(tablet) {
+//     width: b.$tablet;
+//     padding: 0 40px;
+//   }
+
+//   @include m.media(desktop) {
+//     width: b.$desktop;
+//     padding: 0 72px;
+//   }
+// }
+.container {
+  width: 100%;
+  // margin-top: 30px;
+  margin-inline: auto;
+  padding-inline: 16px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @include m.media(mobile) {
+    max-width: 480px;
+  }
+
+  @include m.media(tablet) {
+    max-width: 768px;
+    padding-inline: 24px;
+  }
+
+  @include m.media(laptop) {
+    max-width: 1024px;
+    padding-inline: 32px;
+  }
+
+  @include m.media(desktop) {
+    max-width: 1280px;
+    padding-inline: 40px;
+  }
+
+  @include m.media(desktop-xl) {
+    max-width: 1440px;
+    padding-inline: 48px;
+  }
+}

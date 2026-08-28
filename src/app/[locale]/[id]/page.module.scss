@@ -1,0 +1,307 @@
+@use "shared/styles/mixins" as mixins;
+
+.container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 50%;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  border-radius: 10px;
+}
+
+.infoContainer {
+  width: 50%;
+  padding: 20px;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #2b2b2b;
+}
+
+.price {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+  }
+
+  li {
+    font-size: 1rem;
+    color: #555;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+}
+
+.colorOptions,
+.sizeOptions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.colorBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  @include mixins.transition(transform, border-color);
+}
+
+.colorBtn:hover,
+.colorBtn:focus {
+  border-color: #000;
+  transform: scale(1.05);
+}
+
+.sizeBtn {
+  padding: 8px 16px;
+  border: 2px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sizeBtn:hover {
+  border-color: #000;
+}
+
+.active {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+
+.available {
+  opacity: 1;
+}
+
+.unavailable {
+  opacity: 0.5;
+}
+
+.addToCart.active {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.deliveryInfo {
+  margin: 16px 0;
+  font-weight: 500;
+}
+
+.deliveryText {
+  color: #555;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #555;
+  }
+}
+
+.addToCart {
+  background-color: #2b2b2b;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #555;
+  }
+}
+
+.error {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff0000;
+  padding: 40px;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 400px;
+  }
+
+  .infoContainer {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .colors,
+  .quantity {
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    li,
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .addToCart {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .imageContainer {
+    height: 300px;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+
+  .colors,
+  .quantity {
+    h3 {
+      font-size: 1rem;
+    }
+
+    li,
+    p {
+      font-size: 0.85rem;
+    }
+  }
+
+  .colorOptions,
+  .sizeOptions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+
+  .colorBtn,
+  .sizeBtn {
+    padding: 8px 16px;
+    border: 2px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover:not(:disabled) {
+      border-color: #000;
+    }
+
+    &.active {
+      border-color: #000;
+      background: #000;
+      color: white;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .deliveryInfo {
+    margin: 16px 0;
+    font-weight: 500;
+  }
+
+  .deliveryText {
+    color: #555;
+  }
+
+  .selectionMessage {
+    margin-bottom: 12px;
+    color: #d32f2f;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+}

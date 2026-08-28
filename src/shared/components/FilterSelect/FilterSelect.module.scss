@@ -1,0 +1,19 @@
+@use "shared/styles/_typography.scss" as t;
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  .filterLabel {
+    margin-bottom: 5px;
+    font-size: t.$font-size-sm;
+  }
+
+  .filterSelect {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: t.$font-size-sm;
+    width: 100%;
+  }
+}

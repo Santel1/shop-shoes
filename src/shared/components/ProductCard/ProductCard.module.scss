@@ -1,0 +1,45 @@
+@use "shared/styles/_colors.scss" as c;
+@use "shared/styles/_typography.scss" as t;
+
+.image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 8px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  .swatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid c.$border-gray-color;
+  }
+  .more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: c.$border-gray-color;
+    font-size: t.$font-size-xs;
+    color: c.$black-text-color;
+  }
+}
+
+.productLink {
+  display: inline-block;
+  font-size: t.$font-size-md;
+  font-weight: t.$font-weight-semibold;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: t.$font-size-sm;
+}

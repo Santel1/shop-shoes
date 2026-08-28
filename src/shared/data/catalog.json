@@ -1,0 +1,38 @@
+[
+  {
+    "id": "catalog",
+    "text": "Catalog",
+    "href": "/en/catalog",
+    "subMenu": [
+      {
+        "id": "1",
+        "href": "/en/catalog/category1",
+        "text": "Category 1"
+      },
+      {
+        "id": "2",
+        "href": "/en/catalog/category2",
+        "text": "Category 2"
+      },
+      {
+        "id": "3",
+        "href": "/en/catalog/category3",
+        "text": "Category 3"
+      },
+      {
+        "id": "4",
+        "href": "/en/catalog/category4",
+        "text": "Category 4"
+      }
+    ]
+  },
+  { "id": "campaigns", "text": "Campaigns", "href": "/en/campaigns" },
+  { "id": "info", "text": "Info", "href": "/en/info" },
+  {
+    "id": "about",
+    "text": "About",
+    "href": "/en/about"
+  },
+  { "id": "user", "text": "User", "href": "/en/user" },
+  { "id": "basket", "text": "Basket", "href": "/en/basket" }
+]

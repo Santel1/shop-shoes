@@ -1,5 +1,7 @@
 @use "@/shared/styles/effects" as effects;
 
+@use "@/shared/styles/colors" as colors;
+
 .section {
   display: flex;
   align-items: center;
@@ -50,9 +52,9 @@
   font-size: 2rem;
   font-weight: 400;
   text-transform: uppercase;
-  color: #333;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+  color: colors.$dark-gray-color;
+  border-top: 1px solid colors.$dark-gray-color;
+  border-bottom: 1px solid colors.$dark-gray-color;
   padding: 10px 0;
 }
 

@@ -5,7 +5,7 @@
 .swatch {
   display: inline-block;
   border-radius: effects.$radius-round;
-  border: 2px solid rgba(0, 0, 0, 0.08);
+  border: 2px solid colors.$border-swatch-color;
   cursor: pointer;
   @include mixins.transition(transform, border-color, box-shadow);
   padding: 0;

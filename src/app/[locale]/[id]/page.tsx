@@ -16,24 +16,45 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const shoe = data.find((item) => item.id === id);
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
+  const [showSelectionMessage, setShowSelectionMessage] = useState(false);
 
   useEffect(() => {
-    setSelectedColor("");
+    setSelectedColor(shoe?.color?.[0] ?? "");
     setSelectedSize(null);
+    setShowSelectionMessage(false);
   }, [shoe?.id]);
 
   useEffect(() => {
     setSelectedSize(null);
+    setShowSelectionMessage(false);
   }, [selectedColor]);
 
-  const availableSizesForColor = useMemo(() => {
-    if (!shoe || !selectedColor) return [];
+  const availableColors = shoe?.color ?? [];
+  const availableSizes = shoe?.size ?? [];
 
-    return shoe.variants
-      .filter((variant) => variant.colorVariant === selectedColor)
-      .map((variant) => variant.sizeVariant)
-      .sort((a, b) => a - b);
-  }, [shoe, selectedColor]);
+  const sizeGroups = useMemo(() => {
+    if (!shoe || !selectedColor) {
+      return { inStock: [], madeToOrder: [] };
+    }
+
+    const inStock: number[] = [];
+    const madeToOrder: number[] = [];
+
+    availableSizes.forEach((size) => {
+      const variant = shoe.variants.find(
+        (item) =>
+          item.colorVariant === selectedColor && item.sizeVariant === size,
+      );
+
+      if (variant && variant.stockVariant > 0) {
+        inStock.push(size);
+      } else {
+        madeToOrder.push(size);
+      }
+    });
+
+    return { inStock, madeToOrder };
+  }, [shoe, selectedColor, availableSizes]);
 
   const selectedVariant = useMemo(() => {
     if (!shoe || !selectedColor || selectedSize === null) return null;
@@ -50,31 +71,26 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const normalizeColorName = (color: string) =>
     color.replace(/\s+/g, "").toLowerCase();
 
+  const isInStock = (selectedVariant?.stockVariant ?? 0) > 0;
+  const isMadeToOrder = !isInStock;
+
   const deliveryText = useMemo(() => {
     if (!selectedColor || selectedSize === null) return "";
-    if ((selectedVariant?.stockVariant ?? 0) > 0) {
+    if (isInStock) {
       return "Отправка 1-2 рабочих дня";
     }
     return "Изготовление и отправка 5-9 рабочих дней";
-  }, [selectedColor, selectedSize, selectedVariant]);
+  }, [selectedColor, selectedSize, isInStock]);
 
-  const isAddDisabled = !selectedColor || selectedSize === null;
-
-  const selectionMessage = useMemo(() => {
-    if (!selectedColor && selectedSize === null) {
-      return "Select size and color";
-    }
-    if (!selectedColor) {
-      return "Select color";
-    }
-    if (selectedSize === null) {
-      return "Select size";
-    }
-    return "";
-  }, [selectedColor, selectedSize]);
+  const isAddDisabled = !selectedColor;
 
   const handleAddToCart = () => {
-    if (!shoe || isAddDisabled) return;
+    if (!shoe) return;
+
+    if (selectedSize === null) {
+      setShowSelectionMessage(true);
+      return;
+    }
 
     addToCart({
       id: shoe.id,
@@ -86,14 +102,14 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       description: shoe.description,
       color: shoe.color,
       size: shoe.size,
-      colorOptions: (shoe.colorOptions as any) ?? undefined,
+      colorOptions: shoe.colorOptions ?? undefined,
       selectedColor,
       selectedSize,
       idVariant:
         selectedVariant?.idVariant ??
         `${shoe.id}-${selectedColor}-${selectedSize}`,
       stockVariant: selectedVariant?.stockVariant ?? 0,
-      madeToOrder: selectedVariant?.madeToOrder ?? false,
+      madeToOrder: isMadeToOrder,
       deliveryText,
     });
   };
@@ -120,53 +136,90 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           <div className={s.colors}>
             <h3>Available Colors:</h3>
             <div className={s.colorOptions}>
-              {shoe.colorOptions && shoe.colorOptions.length > 0
-                ? shoe.colorOptions.map((opt) => (
+              {availableColors.map((color) => {
+                const colorOption = shoe.colorOptions?.find(
+                  (option) => option.name === color,
+                );
+
+                if (colorOption) {
+                  return (
                     <ColorSwatch
-                      key={opt.name}
-                      option={opt}
-                      selected={selectedColor === opt.name}
+                      key={color}
+                      option={colorOption}
+                      selected={selectedColor === color}
                       onSelect={(name) => setSelectedColor(name)}
                       size={36}
                     />
-                  ))
-                : shoe.color.map((color) => {
-                    const swatchColor = normalizeColorName(color);
-                    return (
-                      <button
-                        key={color}
-                        type="button"
-                        className={`${s.colorBtn} ${
-                          selectedColor === color ? s.active : ""
-                        }`}
-                        onClick={() => setSelectedColor(color)}
-                        aria-label={`Select ${color}`}
-                        style={{ backgroundColor: swatchColor }}
-                      />
-                    );
-                  })}
+                  );
+                }
+
+                return (
+                  <button
+                    key={color}
+                    type="button"
+                    className={`${s.colorBtn} ${
+                      selectedColor === color ? s.active : ""
+                    }`}
+                    onClick={() => setSelectedColor(color)}
+                    aria-label={`Select ${color}`}
+                    style={{ backgroundColor: normalizeColorName(color) }}
+                  />
+                );
+              })}
             </div>
           </div>
 
           <div className={s.sizes}>
             <h3>Available Sizes:</h3>
-            <div className={s.sizeOptions}>
-              {shoe.size.map((size) => {
-                availableSizesForColor.includes(size);
-                return (
-                  <button
-                    key={size}
-                    type="button"
-                    className={`${s.sizeBtn} ${
-                      selectedSize === size ? s.active : ""
-                    } `}
-                    onClick={() => setSelectedSize(size)}
-                  >
-                    {size}
-                  </button>
-                );
-              })}
-            </div>
+            {selectedColor && (
+              <>
+                {sizeGroups.inStock.length > 0 && (
+                  <div className={s.sizeGroup}>
+                    <h4 className={s.sizeGroupTitle}>In stock</h4>
+                    <div className={s.sizeOptions}>
+                      {sizeGroups.inStock.map((size) => (
+                        <button
+                          key={size}
+                          type="button"
+                          className={`${s.sizeBtn} ${
+                            selectedSize === size ? s.active : ""
+                          }`}
+                          onClick={() => {
+                            setSelectedSize(size);
+                            setShowSelectionMessage(false);
+                          }}
+                        >
+                          {size}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {sizeGroups.madeToOrder.length > 0 && (
+                  <div className={s.sizeGroup}>
+                    <h4 className={s.sizeGroupTitle}>Made to order</h4>
+                    <div className={s.sizeOptions}>
+                      {sizeGroups.madeToOrder.map((size) => (
+                        <button
+                          key={size}
+                          type="button"
+                          className={`${s.sizeBtn} ${
+                            selectedSize === size ? s.active : ""
+                          }`}
+                          onClick={() => {
+                            setSelectedSize(size);
+                            setShowSelectionMessage(false);
+                          }}
+                        >
+                          {size}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
           </div>
 
           {selectedColor && selectedSize !== null && (
@@ -175,12 +228,14 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             </div>
           )}
 
-          {selectionMessage && (
-            <div className={s.selectionMessage}>{selectionMessage}</div>
+          {showSelectionMessage && selectedSize === null && (
+            <div className={s.selectionMessage}>Please select a size</div>
           )}
 
           <button
-            className={`${s.addToCart} ${!isAddDisabled ? s.active : ""}`}
+            className={`${s.addToCart} ${
+              selectedColor && selectedSize !== null ? s.active : ""
+            }`}
             onClick={handleAddToCart}
             disabled={isAddDisabled}
           >

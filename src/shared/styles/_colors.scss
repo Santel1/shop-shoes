@@ -18,7 +18,10 @@ $dark-pink-color: #9c27b0;
 $default-text-color: #222222;
 $white-text-color: #ffffff;
 $black-text-color: #000000;
-
+$dark-text-color: #2b2b2b;
+$light-text-color: #555555;
+$muted-text-color: #777777;
+$dark-gray-color: #333333;
 // ================= background ================
 
 $final-bg-color: #fbfbfb;
@@ -28,7 +31,15 @@ $bg-gray-color: #f0f0f0;
 $bg-black-color: #000000;
 $bg-light-gray-color: #f9f9f9;
 $bg-overlay-color: rgba(0, 0, 0, 0.5);
+$bg-dark-color: #2b2b2b;
+$bg-light-color: #555555;
+$bg-filter-color: #f2f2f2;
 
 // ================ border ================
 
 $border-gray-color: #e6e6e6;
+$border-light-color: #dddddd;
+$border-medium-color: #cccccc;
+$border-subtle-color: #eeeeee;
+$border-swatch-color: rgba(0, 0, 0, 0.08);
+$button-overlay-color: rgba(31, 31, 31, 0.1);

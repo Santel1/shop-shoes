@@ -5,7 +5,7 @@
 .footer {
   width: 100%;
   background: colors.$bg-white-color;
-  border-top: 1px solid #eee;
+  border-top: 1px solid colors.$border-subtle-color;
   padding: 60px 20px 30px;
 
   .container {
@@ -34,6 +34,7 @@
       width: 90px;
       height: 90px;
       fill: colors.$black-color;
+      @include mixins.transition(fill);
       &:hover {
         fill: colors.$pink-color;
       }
@@ -41,7 +42,7 @@
 
     .description {
       margin-top: 20px;
-      color: #777;
+      color: colors.$muted-text-color;
       line-height: 1.6;
       font-size: 14px;
     }
@@ -130,7 +131,7 @@
   .bottom {
     margin-top: 50px;
     padding-top: 25px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid colors.$border-subtle-color;
 
     display: flex;
     justify-content: space-between;
@@ -139,7 +140,7 @@
 
     p {
       font-size: 13px;
-      color: #777;
+      color: colors.$muted-text-color;
     }
 
     .payment {

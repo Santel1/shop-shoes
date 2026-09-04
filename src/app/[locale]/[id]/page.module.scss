@@ -1,5 +1,6 @@
 @use "@/shared/styles/mixins" as mixins;
 @use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/colors" as colors;
 
 .container {
   display: flex;
@@ -30,12 +31,12 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #2b2b2b;
+  color: colors.$dark-text-color;
 }
 
 .price {
   font-size: 1.8rem;
-  color: #555;
+  color: colors.$light-text-color;
   margin-bottom: 20px;
 }
 
@@ -60,9 +61,9 @@
 
   li {
     font-size: 1rem;
-    color: #555;
+    color: colors.$light-text-color;
     padding: 5px 10px;
-    border: 1px solid #ddd;
+    border: 1px solid colors.$border-gray-color;
     border-radius: effects.$radius-md;
   }
 }
@@ -75,39 +76,46 @@
   margin: 12px 0;
 }
 
+.sizeGroupTitle {
+  margin: 12px 0 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: colors.$light-text-color;
+}
+
 .colorBtn {
   width: 32px;
   height: 32px;
   border-radius: effects.$radius-round;
-  border: 2px solid #ddd;
-  background: #fff;
+  border: 2px solid colors.$border-gray-color;
+  background: colors.$bg-white-color;
   cursor: pointer;
   @include mixins.transition(transform, border-color);
 }
 
 .colorBtn:hover,
 .colorBtn:focus {
-  border-color: #000;
+  border-color: colors.$bg-black-color;
   transform: scale(1.05);
 }
 
 .sizeBtn {
   padding: 8px 16px;
-  border: 2px solid #ddd;
-  background: white;
+  border: 2px solid colors.$border-gray-color;
+  background: colors.$bg-white-color;
   cursor: pointer;
   border-radius: effects.$radius-sm;
   @include mixins.transition(background-color, border-color);
 }
 
 .sizeBtn:hover {
-  border-color: #000;
+  border-color: colors.$black-color;
 }
 
 .active {
-  border-color: #000;
-  background: #000;
-  color: #fff;
+  border-color: colors.$black-color;
+  background: colors.$bg-black-color;
+  color: colors.$white-text-color;
 }
 
 .available {
@@ -119,24 +127,31 @@
 }
 
 .addToCart.active {
-  background-color: #000;
-  color: #fff;
-  border-color: #000;
+  background-color: colors.$bg-black-color;
+  color: colors.$white-text-color;
+  border-color: colors.$black-color;
 }
 
 .deliveryInfo {
   margin: 16px 0;
   font-weight: 500;
 }
+.selectionMessage {
+  margin: 16px 0;
+  color: colors.$pink-color;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
 
 .deliveryText {
-  color: #555;
+  color: colors.$light-text-color;
 }
 
 .description {
   font-size: 1rem;
   line-height: 1.6;
-  color: #555;
+  color: colors.$light-text-color;
+
   margin-bottom: 20px;
 }
 
@@ -151,13 +166,13 @@
 
   p {
     font-size: 1rem;
-    color: #555;
+    color: colors.$light-text-color;
   }
 }
 
 .addToCart {
-  background-color: #2b2b2b;
-  color: #fff;
+  background-color: colors.$bg-dark-color;
+  color: colors.$white-text-color;
   padding: 12px 30px;
   border: none;
   border-radius: effects.$radius-md;
@@ -166,14 +181,14 @@
   @include mixins.transition(background-color);
 
   &:hover {
-    background-color: #555;
+    background-color: colors.$bg-light-color;
   }
 }
 
 .error {
   text-align: center;
   font-size: 1.5rem;
-  color: #ff0000;
+  color: colors.$pink-color;
   padding: 40px;
 }
 
@@ -267,40 +282,24 @@
   .colorBtn,
   .sizeBtn {
     padding: 8px 16px;
-    border: 2px solid #ddd;
-    background: white;
+    border: 2px solid colors.$border-gray-color;
+    background: colors.$bg-white-color;
     cursor: pointer;
     border-radius: effects.$radius-sm;
 
     &:hover:not(:disabled) {
-      border-color: #000;
+      border-color: colors.$black-color;
     }
 
     &.active {
-      border-color: #000;
-      background: #000;
-      color: white;
+      border-color: colors.$black-color;
+      background: colors.$bg-black-color;
+      color: colors.$white-text-color;
     }
 
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
-  }
-
-  .deliveryInfo {
-    margin: 16px 0;
-    font-weight: 500;
-  }
-
-  .deliveryText {
-    color: #555;
-  }
-
-  .selectionMessage {
-    margin-bottom: 12px;
-    color: #d32f2f;
-    font-size: 0.95rem;
-    font-weight: 500;
   }
 }

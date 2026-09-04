@@ -108,7 +108,7 @@
   width: 20px;
   height: 20px;
   border-radius: effects.$radius-round;
-  border: 1px solid #ddd;
+  border: 1px solid colors.$border-light-color;
   box-shadow: effects.$shadow-swatch;
 }
 
@@ -122,6 +122,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .counter {
@@ -129,7 +130,7 @@
   box-sizing: border-box;
   align-items: center;
   gap: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid colors.$border-medium-color;
 }
 .counterBtn {
   display: flex;
@@ -144,9 +145,6 @@
 }
 // .cartItemQuantity {
 // }
-.cartItemInfo {
-  margin-bottom: 15px;
-}
 // .cartItemPrice {
 // }
 .cartItemRemoveBtn {
@@ -194,7 +192,7 @@
 .cartMessage {
   font-size: 16px;
   margin-bottom: 10px;
-  color: colors.$black-color; /* Red color for message */
+  color: colors.$black-color; /* Сolor for message */
 }
 .cartActions {
   display: flex;

@@ -1,5 +1,6 @@
 @use "@/shared/styles/typography" as typography;
 @use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/colors" as colors;
 
 .filterGroup {
   display: flex;
@@ -12,9 +13,10 @@
 
   .filterSelect {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid colors.$border-medium-color;
     border-radius: effects.$radius-md;
     font-size: typography.$font-size-sm;
     width: 100%;
+    cursor: pointer;
   }
 }

@@ -2,6 +2,7 @@
 @use "sass:map";
 @use "sass:list";
 @use "@/shared/styles/z-index" as zIndex;
+@use "@/shared/styles/colors" as colors;
 
 /*
 screen types: 
@@ -80,8 +81,8 @@ screen types:
     background:
       linear-gradient(
         0deg,
-        rgba(31, 31, 31, 0.1) 0%,
-        rgba(31, 31, 31, 0.1) 100%
+        colors.$button-overlay-color 0%,
+        colors.$button-overlay-color 100%
       ),
       $_original_bg_color;
     color: $_text_color;

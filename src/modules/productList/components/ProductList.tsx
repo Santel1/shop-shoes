@@ -12,6 +12,10 @@ export default function ProductList({
   products,
   basePath = "/en",
 }: ProductListProps) {
+  if (!products.length) {
+    return <p>No products found for the selected filters.</p>;
+  }
+
   return (
     <ul className={s.catalogList}>
       {products.map((product) => (

@@ -1,29 +1,28 @@
 @use "@/shared/styles/mixins" as mixins;
 @use "@/shared/styles/colors" as colors;
 @use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/typography" as typography;
 
 .title {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   color: colors.$dark-text-color;
+  font-size: typography.rem(28px);
   font-weight: bold;
+  text-align: center;
 }
 
 .section {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 40px;
-  gap: 30px;
-  &:nth-child(2n) {
-    flex-direction: row-reverse;
-  }
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 .imageContainer {
   position: relative;
-  width: 50%;
-  height: 300px;
+  width: 100%;
+  height: 200px;
   overflow: hidden;
   border-radius: effects.$radius-lg;
   box-shadow: effects.$shadow-image;
@@ -34,78 +33,84 @@
 }
 
 .textContainer {
-  width: 50%;
-  padding: 20px;
+  width: 100%;
+  padding: 10px;
+
+  h2 {
+    margin-bottom: 15px;
+    color: colors.$dark-text-color;
+    font-size: typography.rem(20px);
+  }
+
+  p {
+    color: colors.$default-text-color;
+    font-size: typography.rem(13px);
+    line-height: 1.6;
+  }
 }
 
-.textContainer h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: colors.$dark-text-color;
-}
-
-.textContainer p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: colors.$default-text-color;
-}
-
-/* Responsive Design */
-
-/* Tablets */
-@media (max-width: 768px) {
+/* Tablet */
+@include mixins.media(tablet) {
   .title {
-    font-size: 2rem;
+    margin-bottom: 40px;
+    font-size: typography.rem(32px);
   }
 
   .section {
-    flex-direction: column;
     gap: 20px;
+  }
 
-    &:nth-child(even) {
-      flex-direction: column;
+  .imageContainer {
+    height: 250px;
+  }
+
+  .textContainer {
+    padding: 20px;
+
+    h2 {
+      font-size: typography.rem(24px);
+    }
+
+    p {
+      font-size: typography.rem(14px);
+    }
+  }
+}
+
+/* Desktop */
+@include mixins.media(laptop) {
+  .title {
+    font-size: typography.rem(40px);
+  }
+
+  .section {
+    flex-direction: row;
+    gap: 30px;
+    margin-bottom: 40px;
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
     }
   }
 
   .imageContainer,
   .textContainer {
-    width: 100%;
-    height: 250px;
+    width: 50%;
+  }
+
+  .imageContainer {
+    height: 300px;
   }
 
   .textContainer {
-    padding: 10px;
-  }
+    padding: 20px;
 
-  .textContainer h2 {
-    font-size: 1.5rem;
-  }
+    h2 {
+      font-size: typography.rem(28px);
+    }
 
-  .textContainer p {
-    font-size: 0.9rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .section {
-    margin-bottom: 30px;
-  }
-
-  .imageContainer,
-  .textContainer {
-    height: 200px;
-  }
-
-  .textContainer h2 {
-    font-size: 1.3rem;
-  }
-
-  .textContainer p {
-    font-size: 0.85rem;
+    p {
+      font-size: typography.rem(16px);
+    }
   }
 }

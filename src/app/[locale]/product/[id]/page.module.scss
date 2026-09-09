@@ -1,0 +1,270 @@
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
+
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   margin-bottom: 40px;
+// }
+
+// .imageContainer {
+//   position: relative;
+//   width: 100%;
+//   height: 300px;
+//   overflow: hidden;
+//   border-radius: effects.$radius-lg;
+//   box-shadow: effects.$shadow-image;
+// }
+
+// .image {
+//   border-radius: effects.$radius-lg;
+// }
+
+// .infoContainer {
+//   width: 100%;
+//   padding: 10px 0;
+//   text-align: left;
+// }
+
+// .name {
+//   margin-bottom: 8px;
+//   color: colors.$dark-text-color;
+//   font-size: typography.rem(22px);
+//   font-weight: 600;
+//   line-height: 1.2;
+// }
+
+// .price {
+//   margin-bottom: 18px;
+//   color: colors.$light-text-color;
+//   font-size: typography.rem(16px);
+//   line-height: 1.3;
+// }
+
+// .colors {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   gap: 8px;
+//   margin-bottom: 18px;
+
+//   h3 {
+//     margin: 0;
+//     color: colors.$dark-text-color;
+//     font-size: typography.rem(14px);
+//     font-weight: 600;
+//   }
+// }
+
+// .colorOptions,
+// .sizeOptions {
+//   display: flex;
+//   justify-content: flex-start;
+//   flex-wrap: wrap;
+//   gap: 8px;
+//   margin: 4px 0 0;
+// }
+
+// .colorBtn {
+//   width: 32px;
+//   height: 32px;
+//   border: 2px solid colors.$border-gray-color;
+//   border-radius: effects.$radius-round;
+//   background: colors.$bg-white-color;
+//   cursor: pointer;
+
+//   @include mixins.transition(transform, border-color);
+
+//   &:hover,
+//   &:focus {
+//     border-color: colors.$bg-black-color;
+//     transform: scale(1.05);
+//   }
+// }
+
+// .sizeGroup {
+//   margin-bottom: 12px;
+// }
+
+// .sizeGroupTitle {
+//   margin: 0 0 8px;
+//   color: colors.$light-text-color;
+//   font-size: typography.rem(12px);
+//   font-weight: 400;
+// }
+
+// .sizeBtn {
+//   min-width: 38px;
+//   padding: 7px 12px;
+//   border: 1px solid colors.$border-gray-color;
+//   border-radius: effects.$radius-sm;
+//   background: colors.$bg-white-color;
+//   color: colors.$dark-text-color;
+//   font-size: typography.rem(12px);
+//   cursor: pointer;
+
+//   @include mixins.transition(background-color, border-color);
+
+//   &:hover:not(:disabled) {
+//     border-color: colors.$black-color;
+//   }
+
+//   &:disabled {
+//     opacity: 0.5;
+//     cursor: not-allowed;
+//   }
+// }
+
+// .active {
+//   border-color: colors.$black-color;
+//   background: colors.$bg-black-color;
+//   color: colors.$white-text-color;
+// }
+
+// .deliveryInfo {
+//   margin: 12px 0;
+//   font-weight: 500;
+// }
+
+// .deliveryText {
+//   color: colors.$light-text-color;
+//   font-size: typography.rem(13px);
+// }
+
+// .selectionMessage {
+//   margin: 12px 0;
+//   color: colors.$pink-color;
+//   font-size: typography.rem(13px);
+//   font-weight: 500;
+// }
+
+// .addToCart {
+//   width: 100%;
+//   margin-top: 12px;
+//   padding: 12px 20px;
+//   border: none;
+//   border-radius: effects.$radius-md;
+//   background-color: colors.$bg-dark-color;
+//   color: colors.$white-text-color;
+//   font-size: typography.rem(13px);
+//   cursor: pointer;
+
+//   @include mixins.transition(background-color);
+
+//   &:hover:not(:disabled) {
+//     background-color: colors.$bg-light-color;
+//   }
+
+//   &:disabled {
+//     opacity: 0.5;
+//     cursor: not-allowed;
+//   }
+
+//   &.active {
+//     border-color: colors.$black-color;
+//     background-color: colors.$bg-black-color;
+//     color: colors.$white-text-color;
+//   }
+// }
+
+// .description {
+//   margin-bottom: 20px;
+//   color: colors.$light-text-color;
+//   font-size: typography.rem(13px);
+//   line-height: 1.6;
+
+//   h3 {
+//     margin-bottom: 8px;
+//     color: colors.$dark-text-color;
+//     font-size: typography.rem(14px);
+//   }
+// }
+
+.error {
+  padding: 40px;
+  color: colors.$pink-color;
+  font-size: typography.rem(24px);
+  text-align: center;
+}
+
+// /* Tablet */
+@include mixins.media(tablet) {
+  // .imageContainer {
+  //   height: 400px;
+  // }
+
+  // .infoContainer {
+  //   padding: 15px 0;
+  // }
+
+  // .name {
+  //   font-size: typography.rem(25px);
+  // }
+
+  // .price {
+  //   font-size: typography.rem(17px);
+  // }
+
+  // .colors {
+  //   h3 {
+  //     font-size: typography.rem(15px);
+  //   }
+  // }
+
+  // .sizeBtn {
+  //   padding: 8px 14px;
+  // }
+
+  //   .description {
+  //     font-size: typography.rem(14px);
+  //   }
+}
+
+/* Laptop / Desktop */
+// @include mixins.media(laptop) {
+//   .container {
+//     flex-direction: row;
+//     align-items: flex-start;
+//     gap: 40px;
+//   }
+
+// .imageContainer {
+//   width: 50%;
+//   height: 500px;
+// }
+
+// .infoContainer {
+//   width: 50%;
+//   padding: 10px 20px;
+// }
+
+// .name {
+//   font-size: typography.rem(32px);
+// }
+
+// .price {
+//   font-size: typography.rem(19px);
+// }
+
+// .colors {
+//   h3 {
+//     font-size: typography.rem(16px);
+//   }
+// }
+
+// .colorOptions,
+// .sizeOptions {
+//   justify-content: flex-start;
+// }
+
+// .addToCart {
+//   width: 100%;
+// }
+
+//   .description {
+//     font-size: typography.rem(16px);
+//   }
+// }

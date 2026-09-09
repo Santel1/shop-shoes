@@ -2,7 +2,7 @@
 import Container from "@/shared/components/Container/Container";
 import s from "./page.module.scss";
 import shoes from "@/shared/data/shoes.json";
-import { useCart } from "@/context/CartContext";
+import bags from "@/shared/data/bags.json";
 import {
   useRouter,
   useSearchParams,
@@ -11,11 +11,15 @@ import {
 } from "next/navigation";
 import { useMemo } from "react";
 import ProductList from "@/modules/productList/components/ProductList";
-import FilterSelect from "@/shared/components/FilterSelect/FilterSelect";
-import FilterButtons from "@/shared/components/FilterButtons/FilterButtons";
+import CatalogFilters from "@/modules/catalogFilters/components/CatalogFilters/CatalogFilters";
+import { Product } from "@/types/product";
+
+const products: Product[] = [
+  ...shoes.filter((product) => product.category === "shoes"),
+  ...bags,
+];
 
 export default function Page({}) {
-  const { addToCart } = useCart();
   const router = useRouter();
   const params = useSearchParams();
   const pathname = usePathname();
@@ -26,66 +30,170 @@ export default function Page({}) {
   const color = currentParams.get("color") || "";
   const size = currentParams.get("size") || "";
   const category = currentParams.get("category") || "";
-  const sort = currentParams.get("sort") || "";
+  const sort = currentParams.get("sort") || "newest";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ color, size, sort, category });
-  };
+  const categories = useMemo(
+    () => Array.from(new Set(products.map((product) => product.category))),
+    [],
+  );
 
-  const colors = useMemo(
+  const categoryProducts = useMemo(
+    () =>
+      products.filter((product) => {
+        if (category) return product.category === category;
+        return product.category !== "bags";
+      }),
+    [category],
+  );
+
+  const selectedColors = color.split(",").filter(Boolean);
+  const selectedSizes = size.split(",").filter(Boolean);
+
+  const productsMatchingColors = useMemo(
+    () =>
+      selectedColors.length
+        ? categoryProducts.filter((product) =>
+            selectedColors.some((selectedColor) =>
+              (product.color ?? []).includes(selectedColor),
+            ),
+          )
+        : categoryProducts,
+    [categoryProducts, selectedColors],
+  );
+
+  const productsMatchingSizes = useMemo(
+    () =>
+      selectedSizes.length
+        ? categoryProducts.filter((product) =>
+            (product.size ?? []).some((value) =>
+              selectedSizes.includes(String(value)),
+            ),
+          )
+        : categoryProducts,
+    [categoryProducts, selectedSizes],
+  );
+
+  const availableColors = useMemo(
     () =>
       Array.from(
         new Set(
-          shoes.flatMap((shoe) =>
-            Array.isArray(shoe.color) ? shoe.color : [shoe.color],
-          ),
+          productsMatchingSizes.flatMap((product) => product.color ?? []),
         ),
       ),
-    [shoes],
+    [productsMatchingSizes],
   );
 
-  const sizes = useMemo(
+  const availableColorOptions = useMemo(
     () =>
       Array.from(
-        new Set(shoes.flatMap((shoe) => (shoe.size ?? []) as number[])),
-      ).sort((a, b) => a - b),
-    [shoes],
+        new Map(
+          categoryProducts
+            .flatMap((product) => product.colorOptions ?? [])
+            .map((option) => [option.name, option]),
+        ).values(),
+      ),
+    [categoryProducts],
   );
 
-  const categories = useMemo(
-    () => Array.from(new Set(shoes.map((shoe) => shoe.category))),
-    [shoes],
-  );
+  const availableSizes = useMemo(() => {
+    const values = productsMatchingColors.flatMap(
+      (product) => product.size ?? [],
+    );
+    return Array.from(new Set(values.map(String))).sort((a, b) => {
+      const numericA = Number(a);
+      const numericB = Number(b);
+      if (!Number.isNaN(numericA) && !Number.isNaN(numericB))
+        return numericA - numericB;
+      return a.localeCompare(b);
+    });
+  }, [productsMatchingColors]);
 
   const filteredProducts = useMemo(() => {
-    return shoes
-      .filter((shoe) => {
-        if (color) {
-          const shoeColors = Array.isArray(shoe.color)
-            ? shoe.color
-            : [shoe.color];
+    const selectedColors = color.split(",").filter(Boolean);
+    const selectedSizes = size.split(",").filter(Boolean);
 
-          if (!shoeColors.includes(color)) return false;
+    return categoryProducts
+      .filter((shoe) => {
+        if (selectedColors.length) {
+          const shoeColors = shoe.color ?? [];
+
+          if (
+            !selectedColors.some((selectedColor) =>
+              shoeColors.includes(selectedColor),
+            )
+          )
+            return false;
         }
 
-        if (size && !((shoe.size ?? []) as number[]).includes(Number(size))) {
+        if (
+          selectedSizes.length &&
+          !(shoe.size ?? []).some((value) =>
+            selectedSizes.includes(String(value)),
+          )
+        ) {
           return false;
         }
-
-        if (category && shoe.category !== category) return false;
 
         return true;
       })
       .sort((a, b) => {
+        if (sort === "newest")
+          return Number(Boolean(b.isNew)) - Number(Boolean(a.isNew));
         if (sort === "asc") return a.price - b.price;
         if (sort === "desc") return b.price - a.price;
         return 0;
       });
-  }, [shoes, color, size, category, sort]);
+  }, [categoryProducts, color, size, sort]);
 
   const updateFilter = (key: string, value: string) => {
     const newParams = new URLSearchParams(currentParams.toString());
+
+    if (key === "category") {
+      newParams.delete("color");
+      newParams.delete("size");
+    }
+
+    if (key === "color") {
+      const nextColors = value.split(",").filter(Boolean);
+      const validSizes = new Set(
+        (nextColors.length
+          ? categoryProducts.filter((product) =>
+              nextColors.some((selectedColor) =>
+                (product.color ?? []).includes(selectedColor),
+              ),
+            )
+          : categoryProducts
+        ).flatMap((product) => (product.size ?? []).map(String)),
+      );
+      const nextSizes = size
+        .split(",")
+        .filter((selectedSize) => validSizes.has(selectedSize));
+
+      if (nextSizes.length) newParams.set("size", nextSizes.join(","));
+      else newParams.delete("size");
+    }
+
+    if (key === "size") {
+      const nextSizes = value.split(",").filter(Boolean);
+      const validColors = new Set(
+        (nextSizes.length
+          ? categoryProducts.filter((product) =>
+              nextSizes.some((selectedSize) =>
+                (product.size ?? []).some(
+                  (productSize) => String(productSize) === selectedSize,
+                ),
+              ),
+            )
+          : categoryProducts
+        ).flatMap((product) => product.color ?? []),
+      );
+      const nextColors = color
+        .split(",")
+        .filter((selectedColor) => validColors.has(selectedColor));
+
+      if (nextColors.length) newParams.set("color", nextColors.join(","));
+      else newParams.delete("color");
+    }
 
     if (value) {
       newParams.set(key, value);
@@ -100,46 +208,19 @@ export default function Page({}) {
 
   return (
     <Container>
-      <h2 className={s.filterTitle}>Filters</h2>
-      <form onSubmit={handleSubmit} className={s.filterForm}>
-        <FilterSelect
-          title="Color"
-          value={color}
-          onChange={(value) => updateFilter("color", value)}
-          options={colors}
-        />
-        <FilterSelect
-          title="Size"
-          value={size}
-          onChange={(value) => updateFilter("size", value)}
-          options={sizes.map((s) => s.toString())}
-        />
-        <FilterSelect
-          title="Category"
-          value={category}
-          onChange={(value) => updateFilter("category", value)}
-          options={categories}
-        />
-
-        <FilterButtons
-          title="Sort by"
-          value={sort}
-          onChange={(value) => updateFilter("sort", value)}
-          options={[
-            { label: "Price from low", value: "asc" },
-            { label: "Price from high", value: "desc" },
-          ]}
-        />
-        <div className={s.btnWrapper}>
-          <button
-            type="button"
-            onClick={() => router.push(pathname as string)}
-            className={s.filterResetButton}
-          >
-            Reset filters
-          </button>
-        </div>
-      </form>
+      <CatalogFilters
+        count={filteredProducts.length}
+        color={color}
+        size={size}
+        category={category}
+        sort={sort}
+        colors={availableColors}
+        colorOptions={availableColorOptions}
+        sizes={availableSizes}
+        categories={categories}
+        onChangeAction={updateFilter}
+        onResetAction={() => router.push(pathname as string)}
+      />
       <section className={s.catalog}>
         <ProductList products={filteredProducts} basePath={`/${locale}`} />
       </section>

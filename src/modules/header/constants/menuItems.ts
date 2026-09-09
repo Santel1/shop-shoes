@@ -1,7 +1,6 @@
 export const getCatalogItems = (locale: string) => [
   { label: "Shoes", href: `/${locale}/catalog?category=shoes` },
   { label: "Bags", href: `/${locale}/catalog?category=bags` },
-  { label: "Accessories", href: `/${locale}/catalog?category=accessories` },
   { label: "New Arrivals", href: `/${locale}/catalog?isNew=true` },
 ];
 

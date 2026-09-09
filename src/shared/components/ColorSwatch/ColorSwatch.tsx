@@ -12,14 +12,14 @@ export type ColorOption = {
 interface Props {
   option: ColorOption;
   selected?: boolean;
-  onSelect: (name: string) => void;
+  onSelectAction: (name: string) => void;
   size?: number;
 }
 
 export default function ColorSwatch({
   option,
   selected = false,
-  onSelect,
+  onSelectAction,
   size = 48,
 }: Props) {
   const style: React.CSSProperties = {};
@@ -38,7 +38,7 @@ export default function ColorSwatch({
       aria-pressed={selected}
       aria-label={option.label ?? option.name}
       className={`${s.swatch} ${selected ? s.active : ""}`}
-      onClick={() => onSelect(option.name)}
+      onClick={() => onSelectAction(option.name)}
       style={{ ...style, width: size, height: size }}
     />
   );

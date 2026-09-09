@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 import s from "./FilterButtons.module.scss";
 
 export interface FilterButtonsProps {
@@ -14,19 +14,29 @@ export default function FilterButtons({
   options,
   onChange,
 }: FilterButtonsProps) {
+  const groupId = useId();
+
   return (
     <div className={s.filterGroup}>
       <label className={s.filterLabel}>{title}</label>
       <div className={s.sortButtons}>
         {options.map((option) => (
-          <button
+          <label
             key={option.value}
-            type="button"
-            onClick={() => onChange(option.value)}
-            className={`${s.sortButton} ${value === option.value ? s.active : ""}`}
+            className={s.sortButton}
+            htmlFor={`${groupId}-${option.value}`}
           >
+            <input
+              id={`${groupId}-${option.value}`}
+              type="radio"
+              name={groupId}
+              value={option.value}
+              checked={value === option.value}
+              onChange={() => onChange(option.value)}
+            />
+            <span className={s.radioBullet} aria-hidden="true" />
             {option.label}
-          </button>
+          </label>
         ))}
       </div>
     </div>

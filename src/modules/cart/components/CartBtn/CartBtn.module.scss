@@ -1,5 +1,6 @@
 @use "@/shared/styles/colors" as colors;
 @use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/typography" as typography;
 
 .cartBtn {
   display: flex;
@@ -24,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: typography.rem(12px);
   font-weight: bold;
 }
 .iconUser {

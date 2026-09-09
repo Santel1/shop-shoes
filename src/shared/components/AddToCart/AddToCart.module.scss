@@ -1,0 +1,45 @@
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
+
+.selectionMessage {
+  margin: 12px 0;
+  color: colors.$pink-color;
+  font-size: typography.rem(13px);
+  font-weight: 500;
+}
+
+.addToCart {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: effects.$radius-md;
+  background-color: colors.$bg-dark-color;
+  color: colors.$white-text-color;
+  font-size: typography.rem(13px);
+  cursor: pointer;
+
+  @include mixins.transition(background-color);
+
+  &:hover:not(:disabled) {
+    background-color: colors.$bg-light-color;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.active {
+    border-color: colors.$black-color;
+    background-color: colors.$bg-black-color;
+    color: colors.$white-text-color;
+  }
+}
+@include mixins.media(laptop) {
+  .addToCart {
+    width: 100%;
+  }
+}

@@ -25,7 +25,12 @@ export default function Cart({ isOpen, setIsOpen }: CartProps) {
         onClick={() => setIsOpen(false)}
       />
       <div className={clsx(s.cartWrapper, isOpen && s.visible)}>
-        <button onClick={() => setIsOpen(false)} className={s.closeBtn}>
+        <button
+          type="button"
+          onClick={() => setIsOpen(false)}
+          className={s.closeBtn}
+          aria-label="Close cart"
+        >
           <Icon iconName="icon-cross-line" className={s.closeIcon} />
         </button>
         <p className={s.cartTitle}>Cart</p>
@@ -90,7 +95,9 @@ export default function Cart({ isOpen, setIsOpen }: CartProps) {
                       <div className={s.cartItemInfo}>
                         <div className={s.counter}>
                           <button
+                            type="button"
                             className={s.counterBtn}
+                            aria-label={`Decrease ${item.name} quantity`}
                             onClick={() =>
                               updateQuantity(cartId, item.quantity - 1)
                             }
@@ -99,7 +106,9 @@ export default function Cart({ isOpen, setIsOpen }: CartProps) {
                           </button>
                           <p className={s.cartItemQuantity}>{item.quantity}</p>
                           <button
+                            type="button"
                             className={s.counterBtn}
+                            aria-label={`Increase ${item.name} quantity`}
                             onClick={() =>
                               updateQuantity(cartId, item.quantity + 1)
                             }
@@ -112,7 +121,9 @@ export default function Cart({ isOpen, setIsOpen }: CartProps) {
                         </p>
                       </div>
                       <button
+                        type="button"
                         className={s.cartItemRemoveBtn}
+                        aria-label={`Remove ${item.name} from cart`}
                         onClick={() => removeFromCart(cartId)}
                       >
                         Remove

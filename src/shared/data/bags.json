@@ -1,0 +1,449 @@
+[
+  {
+    "id": "bag-1",
+
+    "name": "Soft Leather Tote",
+    "category": "bags",
+    "price": 129.99,
+    "description": "A spacious soft leather tote with a clean silhouette, comfortable handles, and room for everyday essentials.",
+    "color": ["black", "tan"],
+    "size": ["S", "M", "L"],
+    "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=80",
+    "variants": [
+      {
+        "idVariant": "bag-1-black-s",
+        "colorVariant": "black",
+        "sizeVariant": "S",
+        "stockVariant": 3,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-1-black-m",
+        "colorVariant": "black",
+        "sizeVariant": "M",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-1-black-l",
+        "colorVariant": "black",
+        "sizeVariant": "L",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-1-tan-s",
+        "colorVariant": "tan",
+        "sizeVariant": "S",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-1-tan-m",
+        "colorVariant": "tan",
+        "sizeVariant": "M",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-1-tan-l",
+        "colorVariant": "tan",
+        "sizeVariant": "L",
+        "stockVariant": 0,
+        "madeToOrder": true
+      }
+    ]
+  },
+  {
+    "id": "bag-2",
+
+    "name": "Structured Crossbody",
+    "category": "bags",
+    "price": 89.5,
+    "description": "A compact structured crossbody bag with an adjustable strap, secure closure, and polished everyday style.",
+    "color": ["black", "red", "cream"],
+    "size": ["XS", "S", "M"],
+    "imageUrl": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=900&q=80",
+    "variants": [
+      {
+        "idVariant": "bag-2-black-xs",
+        "colorVariant": "black",
+        "sizeVariant": "XS",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-2-black-s",
+        "colorVariant": "black",
+        "sizeVariant": "S",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-2-black-m",
+        "colorVariant": "black",
+        "sizeVariant": "M",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-2-red-xs",
+        "colorVariant": "red",
+        "sizeVariant": "XS",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-2-red-s",
+        "colorVariant": "red",
+        "sizeVariant": "S",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-2-red-m",
+        "colorVariant": "red",
+        "sizeVariant": "M",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-2-cream-xs",
+        "colorVariant": "cream",
+        "sizeVariant": "XS",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-2-cream-s",
+        "colorVariant": "cream",
+        "sizeVariant": "S",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-2-cream-m",
+        "colorVariant": "cream",
+        "sizeVariant": "M",
+        "stockVariant": 0,
+        "madeToOrder": true
+      }
+    ]
+  },
+  {
+    "id": "bag-3",
+
+    "name": "Everyday Shopper",
+    "category": "bags",
+    "price": 74.99,
+    "description": "A lightweight shopper bag designed for busy days, with a roomy interior and relaxed everyday shape.",
+    "color": ["beige", "olive"],
+    "size": ["M", "L", "XL"],
+    "imageUrl": "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=900&q=80",
+    "variants": [
+      {
+        "idVariant": "bag-3-beige-m",
+        "colorVariant": "beige",
+        "sizeVariant": "M",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-3-beige-l",
+        "colorVariant": "beige",
+        "sizeVariant": "L",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-3-beige-xl",
+        "colorVariant": "beige",
+        "sizeVariant": "XL",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-3-olive-m",
+        "colorVariant": "olive",
+        "sizeVariant": "M",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-3-olive-l",
+        "colorVariant": "olive",
+        "sizeVariant": "L",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-3-olive-xl",
+        "colorVariant": "olive",
+        "sizeVariant": "XL",
+        "stockVariant": 0,
+        "madeToOrder": true
+      }
+    ]
+  },
+  {
+    "id": "bag-4",
+
+    "name": "Quilted Shoulder Bag",
+    "category": "bags",
+    "price": 109.0,
+    "description": "A quilted shoulder bag with a soft finish, elegant chain detail, and enough space for daily essentials.",
+    "color": ["pink", "black", "cream"],
+    "size": ["S", "M"],
+    "imageUrl": "https://images.unsplash.com/photo-1585488437781-8f7b1d1c4f5c?w=900&q=80",
+    "variants": [
+      {
+        "idVariant": "bag-4-pink-s",
+        "colorVariant": "pink",
+        "sizeVariant": "S",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-4-pink-m",
+        "colorVariant": "pink",
+        "sizeVariant": "M",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-4-black-s",
+        "colorVariant": "black",
+        "sizeVariant": "S",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-4-black-m",
+        "colorVariant": "black",
+        "sizeVariant": "M",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-4-cream-s",
+        "colorVariant": "cream",
+        "sizeVariant": "S",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-4-cream-m",
+        "colorVariant": "cream",
+        "sizeVariant": "M",
+        "stockVariant": 0,
+        "madeToOrder": true
+      }
+    ]
+  },
+  {
+    "id": "bag-5",
+
+    "name": "Canvas Weekender",
+    "category": "bags",
+    "price": 119.75,
+    "description": "A durable canvas weekender with leather accents and generous space for short trips and overnight plans.",
+    "color": ["blue", "beige"],
+    "size": ["L", "XL"],
+    "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=80",
+    "variants": [
+      {
+        "idVariant": "bag-5-blue-l",
+        "colorVariant": "blue",
+        "sizeVariant": "L",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-5-blue-xl",
+        "colorVariant": "blue",
+        "sizeVariant": "XL",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-5-beige-l",
+        "colorVariant": "beige",
+        "sizeVariant": "L",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-5-beige-xl",
+        "colorVariant": "beige",
+        "sizeVariant": "XL",
+        "stockVariant": 2,
+        "madeToOrder": false
+      }
+    ]
+  },
+  {
+    "id": "bag-6",
+
+    "name": "Mini Top Handle",
+    "category": "bags",
+    "price": 68.0,
+    "description": "A petite top-handle bag with a neat structured shape, ideal for carrying the essentials on special occasions.",
+    "color": ["red", "black", "tan"],
+    "size": ["XS", "S"],
+    "imageUrl": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=900&q=80",
+    "variants": [
+      {
+        "idVariant": "bag-6-red-xs",
+        "colorVariant": "red",
+        "sizeVariant": "XS",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-6-red-s",
+        "colorVariant": "red",
+        "sizeVariant": "S",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-6-black-xs",
+        "colorVariant": "black",
+        "sizeVariant": "XS",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-6-black-s",
+        "colorVariant": "black",
+        "sizeVariant": "S",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-6-tan-xs",
+        "colorVariant": "tan",
+        "sizeVariant": "XS",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-6-tan-s",
+        "colorVariant": "tan",
+        "sizeVariant": "S",
+        "stockVariant": 0,
+        "madeToOrder": true
+      }
+    ]
+  },
+  {
+    "id": "bag-7",
+
+    "name": "Minimal Bucket Bag",
+    "category": "bags",
+    "price": 96.25,
+    "description": "A minimal bucket bag with a soft drawstring closure and versatile proportions for everyday outfits.",
+    "color": ["brown", "cream"],
+    "size": ["S", "M", "L"],
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=80",
+    "variants": [
+      {
+        "idVariant": "bag-7-brown-s",
+        "colorVariant": "brown",
+        "sizeVariant": "S",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-7-brown-m",
+        "colorVariant": "brown",
+        "sizeVariant": "M",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-7-brown-l",
+        "colorVariant": "brown",
+        "sizeVariant": "L",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-7-cream-s",
+        "colorVariant": "cream",
+        "sizeVariant": "S",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-7-cream-m",
+        "colorVariant": "cream",
+        "sizeVariant": "M",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-7-cream-l",
+        "colorVariant": "cream",
+        "sizeVariant": "L",
+        "stockVariant": 0,
+        "madeToOrder": true
+      }
+    ]
+  },
+  {
+    "id": "bag-8",
+
+    "name": "City Backpack",
+    "category": "bags",
+    "price": 104.5,
+    "description": "A practical city backpack with a streamlined profile, comfortable straps, and organized storage for daily use.",
+    "color": ["black", "olive"],
+    "size": ["M", "L", "XL"],
+    "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=80",
+    "variants": [
+      {
+        "idVariant": "bag-8-black-m",
+        "colorVariant": "black",
+        "sizeVariant": "M",
+        "stockVariant": 2,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-8-black-l",
+        "colorVariant": "black",
+        "sizeVariant": "L",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-8-black-xl",
+        "colorVariant": "black",
+        "sizeVariant": "XL",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-8-olive-m",
+        "colorVariant": "olive",
+        "sizeVariant": "M",
+        "stockVariant": 0,
+        "madeToOrder": true
+      },
+      {
+        "idVariant": "bag-8-olive-l",
+        "colorVariant": "olive",
+        "sizeVariant": "L",
+        "stockVariant": 1,
+        "madeToOrder": false
+      },
+      {
+        "idVariant": "bag-8-olive-xl",
+        "colorVariant": "olive",
+        "sizeVariant": "XL",
+        "stockVariant": 0,
+        "madeToOrder": true
+      }
+    ]
+  }
+]

@@ -1,150 +1,160 @@
+@use "@/shared/styles/mixins" as mixins;
 @use "@/shared/styles/effects" as effects;
-
 @use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
 
 .section {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: 80vh;
-  margin-bottom: 40px;
+  min-height: auto;
+  margin-bottom: 20px;
   overflow: hidden;
 
-  &.imageLeft {
-    .imageContainer {
-      animation: slideInFromLeft 1s ease-out forwards;
-    }
-    .textContainer {
-      animation: slideInFromRight 1s ease-out forwards;
-    }
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    opacity: 0;
   }
 
+  .textContainer {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    opacity: 0;
+  }
+
+  .season {
+    padding: 10px 0;
+    border-top: 1px solid colors.$dark-gray-color;
+    border-bottom: 1px solid colors.$dark-gray-color;
+    color: colors.$dark-gray-color;
+    font-size: typography.rem(19px);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .image {
+    border-radius: effects.$radius-lg;
+    object-position: bottom;
+  }
+
+  // Mobile animation
+  &.imageLeft,
   &.imageRight {
-    flex-direction: row-reverse;
+    flex-direction: column;
+
     .imageContainer {
-      animation: slideInFromRight 1s ease-out forwards;
+      animation: fadeInUp 0.8s ease-out forwards;
     }
+
     .textContainer {
-      animation: slideInFromLeft 1s ease-out forwards;
+      animation: fadeInUp 0.8s ease-out forwards;
+      animation-delay: 0.3s;
     }
   }
 }
 
-.imageContainer {
-  position: relative;
-  width: 50%;
-  height: 60vh;
-  opacity: 0; /* For animation */
+/* Tablet */
+@include mixins.media(tablet) {
+  .section {
+    margin-bottom: 40px;
+
+    .imageContainer {
+      height: 50vh;
+    }
+
+    .textContainer {
+      padding: 20px;
+    }
+
+    .season {
+      font-size: typography.rem(24px);
+    }
+  }
 }
 
-.image {
-  border-radius: effects.$radius-lg;
-  object-position: bottom;
-}
+/* Laptop / Desktop */
+@include mixins.media(laptop) {
+  .section {
+    flex-direction: row;
+    align-items: center;
+    min-height: 80vh;
 
-.textContainer {
-  width: 50%;
-  padding: 0 40px;
-  text-align: center;
-  opacity: 0; /* For animation */
-}
+    &.imageLeft {
+      flex-direction: row;
 
-.season {
-  font-size: 2rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: colors.$dark-gray-color;
-  border-top: 1px solid colors.$dark-gray-color;
-  border-bottom: 1px solid colors.$dark-gray-color;
-  padding: 10px 0;
+      .imageContainer {
+        animation: slideInFromLeft 1s ease-out forwards;
+      }
+
+      .textContainer {
+        animation: slideInFromRight 1s ease-out forwards;
+      }
+    }
+
+    &.imageRight {
+      flex-direction: row-reverse;
+
+      .imageContainer {
+        animation: slideInFromRight 1s ease-out forwards;
+      }
+
+      .textContainer {
+        animation: slideInFromLeft 1s ease-out forwards;
+      }
+    }
+
+    .imageContainer {
+      width: 50%;
+      height: 60vh;
+    }
+
+    .textContainer {
+      width: 50%;
+      padding: 0 40px;
+    }
+
+    .season {
+      font-size: typography.rem(32px);
+    }
+  }
 }
 
 /* Animations */
 @keyframes slideInFromLeft {
-  0% {
+  from {
     transform: translateX(-100%);
     opacity: 0;
   }
-  100% {
+
+  to {
     transform: translateX(0);
     opacity: 1;
   }
 }
 
 @keyframes slideInFromRight {
-  0% {
+  from {
     transform: translateX(100%);
     opacity: 0;
   }
-  100% {
+
+  to {
     transform: translateX(0);
     opacity: 1;
   }
 }
 
 @keyframes fadeInUp {
-  0% {
+  from {
     transform: translateY(50px);
     opacity: 0;
   }
-  100% {
+
+  to {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-/* Responsive Design */
-
-/* Tablets */
-@media (max-width: 768px) {
-  .section {
-    flex-direction: column;
-    min-height: auto;
-
-    &.imageLeft,
-    &.imageRight {
-      flex-direction: column;
-      .imageContainer {
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-      .textContainer {
-        animation: fadeInUp 0.8s ease-out forwards;
-        animation-delay: 0.3s;
-      }
-    }
-  }
-
-  .imageContainer {
-    width: 100%;
-    height: 50vh;
-    opacity: 0;
-  }
-
-  .textContainer {
-    width: 100%;
-    padding: 20px;
-    opacity: 0;
-  }
-
-  .season {
-    font-size: 1.5rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .section {
-    margin-bottom: 20px;
-  }
-
-  .imageContainer {
-    height: 40vh;
-  }
-
-  .textContainer {
-    padding: 15px;
-  }
-
-  .season {
-    font-size: 1.2rem;
   }
 }

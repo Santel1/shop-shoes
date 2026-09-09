@@ -5,11 +5,11 @@ export function middleware(req: NextRequest) {
   const url = req.nextUrl;
 
   if (url.pathname === "/") {
-    url.pathname = "/ua";
+    url.pathname = "/en";
     return NextResponse.redirect(url);
   }
 }
-// only for the root path, redirect to /ua. For other paths, do nothing and let the request continue.
+// Only the root path redirects to the default en locale.
 export const config = {
   matcher: "/",
 };

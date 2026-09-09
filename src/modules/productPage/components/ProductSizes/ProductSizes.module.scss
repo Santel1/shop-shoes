@@ -1,0 +1,59 @@
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
+
+.sizeOptions {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 0;
+  .active {
+    border-color: colors.$black-color;
+    background: colors.$bg-black-color;
+    color: colors.$white-text-color;
+  }
+}
+.sizeGroup {
+  margin-bottom: 12px;
+}
+
+.sizeGroupTitle {
+  margin: 0 0 8px;
+  color: colors.$light-text-color;
+  font-size: typography.rem(12px);
+  font-weight: 400;
+}
+
+.sizeBtn {
+  min-width: 38px;
+  padding: 7px 12px;
+  border: 1px solid colors.$border-gray-color;
+  border-radius: effects.$radius-sm;
+  background: colors.$bg-white-color;
+  color: colors.$dark-text-color;
+  font-size: typography.rem(12px);
+  cursor: pointer;
+
+  @include mixins.transition(background-color, border-color);
+
+  &:hover:not(:disabled) {
+    border-color: colors.$black-color;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+@include mixins.media(tablet) {
+  .sizeBtn {
+    padding: 8px 14px;
+  }
+}
+@include mixins.media(laptop) {
+  .sizeOptions {
+    justify-content: flex-start;
+  }
+}

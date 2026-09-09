@@ -4,9 +4,10 @@ type Product = {
   price: number;
   imageUrl: string;
   category: string;
+  isNew?: boolean;
   description: string;
-  color?: string[];
-  size?: number[];
+  color: string[];
+  size: (number | string)[];
   colorOptions?: ColorOption[];
   variants: Variant[];
 };
@@ -14,7 +15,7 @@ type Product = {
 type Variant = {
   idVariant: string;
   colorVariant: string;
-  sizeVariant: number;
+  sizeVariant: string | number;
 
   stockVariant: number;
   madeToOrder: boolean;

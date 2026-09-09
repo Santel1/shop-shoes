@@ -1,0 +1,210 @@
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/typography" as typography;
+
+.filters {
+  position: relative;
+}
+.desktopPanel {
+  display: none;
+}
+.mobileToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border: 1px solid colors.$border-gray-color;
+  background: colors.$white-color;
+}
+.mobileFilterButton {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  font-weight: typography.$font-weight-semibold;
+  cursor: pointer;
+}
+.mobileCount {
+  color: colors.$muted-text-color;
+  font-size: typography.$font-size-xs;
+}
+.panelHeading,
+.drawerHeader,
+.drawerActiveHeader,
+.activeFilters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.panelHeading h1,
+.drawerHeader h2 {
+  margin: 0;
+  font-size: typography.$font-size-xl;
+}
+.panelHeading span,
+.drawerActiveHeader span {
+  color: colors.$muted-text-color;
+  font-size: typography.$font-size-xs;
+}
+.desktopControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 16px;
+}
+.activeFilters {
+  gap: 16px;
+  margin-top: 18px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  .chipIcon {
+    width: 12px;
+    height: 12px;
+  }
+}
+.resetButton,
+.drawerActiveHeader button {
+  padding: 0;
+  border: 0;
+  color: colors.$pink-color;
+  background: none;
+  font-size: typography.$font-size-xs;
+  text-decoration: underline;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  @include mixins.transition(opacity, visibility);
+}
+.backdropVisible {
+  visibility: visible;
+  opacity: 1;
+}
+.drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: 11;
+  display: flex;
+  width: min(100%, 360px);
+  flex-direction: column;
+  background: colors.$white-color;
+  transform: translateX(100%);
+  @include mixins.transition(transform);
+}
+.drawerVisible {
+  transform: translateX(0);
+}
+.drawerHeader {
+  padding: 18px 20px;
+  border-bottom: 1px solid colors.$border-gray-color;
+}
+.closeButton {
+  border: 0;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.drawerBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  padding: 20px;
+}
+.drawerActiveHeader {
+  font-size: typography.$font-size-sm;
+  font-weight: typography.$font-weight-semibold;
+}
+.drawerBody .activeFilters {
+  display: block;
+  margin-top: -14px;
+}
+.drawerBody .resetButton {
+  display: none;
+}
+.drawerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.drawerLabel {
+  font-size: typography.$font-size-sm;
+  font-weight: typography.$font-weight-semibold;
+}
+.optionGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sizeButton {
+  min-width: 32px;
+  height: 28px;
+  border: 1px solid colors.$border-gray-color;
+  border-radius: effects.$radius-round;
+  background: colors.$white-color;
+  font-size: typography.$font-size-xs;
+  cursor: pointer;
+}
+.sizeButton.selected {
+  border-color: colors.$black-color;
+  background: colors.$black-color;
+  color: colors.$white-color;
+}
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.viewResults {
+  margin: 20px;
+  padding: 14px;
+  border: 0;
+  background: colors.$black-color;
+  color: colors.$white-color;
+  font-size: typography.$font-size-xs;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+@include mixins.media(tablet) {
+  .mobileToolbar,
+  .drawer,
+  .backdrop {
+    display: none;
+  }
+  .desktopPanel {
+    display: block;
+    padding: 20px;
+    border: 1px solid colors.$border-gray-color;
+    background: colors.$white-color;
+    border-radius: effects.$radius-md;
+  }
+  .panelHeading {
+    margin-bottom: 20px;
+  }
+  .desktopControls {
+    gap: 16px 20px;
+  }
+}

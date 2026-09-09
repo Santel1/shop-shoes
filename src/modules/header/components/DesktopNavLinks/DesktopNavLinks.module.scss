@@ -1,6 +1,7 @@
 @use "@/shared/styles/mixins" as mixins;
 @use "@/shared/styles/colors" as colors;
 @use "@/shared/styles/effects" as effects;
+@use "@/shared/styles/typography" as typography;
 
 .nav {
   display: none;
@@ -12,7 +13,7 @@
 
     width: 100%;
 
-    font-size: 18px;
+    font-size: typography.rem(18px);
 
     @include mixins.z-index(navigation);
 

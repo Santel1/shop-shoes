@@ -9,9 +9,9 @@ export interface CartItem {
   imageUrl: string;
   description: string;
   color: string[];
-  size: number[];
+  size: (string | number)[];
   selectedColor?: string;
-  selectedSize?: number;
+  selectedSize?: string | number;
   colorOptions?: ColorOption[];
   idVariant?: string;
   stockVariant?: number;

@@ -90,7 +90,7 @@
         "value": "/images/patterns/zebra.jpg"
       }
     ],
-    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "size": [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "variants": [
       {
         "idVariant": "2-white-38",
@@ -211,6 +211,7 @@
       { "name": "coral", "label": "Coral", "type": "solid", "value": "#ff7f50" }
     ],
     "description": "Make a bold statement with our Trendy Sandals, featuring vibrant colors and a modern design. Handmade from durable leather, these sandals offer a comfortable fit with adjustable straps, making them ideal for summer adventures or a stylish day out.",
+    "isNew": true,
     "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "variants": [
       {
@@ -284,6 +285,7 @@
     "quantity": 1,
     "imageUrl": "/images/7.jpg",
     "description": "Our premium Low Shoes are designed for the modern minimalist. Made from top-grain leather, they offer a polished look with exceptional comfort. Perfect for pairing with both casual and business attire, these shoes are a must-have for any wardrobe.",
+    "isNew": true,
     "color": ["beige", "dark green", "charcoal"],
     "colorOptions": [
       {

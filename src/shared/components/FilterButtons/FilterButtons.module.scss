@@ -15,27 +15,53 @@
 
   .sortButtons {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
   }
 
   .sortButton {
-    padding: 10px 12px;
-    background-color: colors.$bg-filter-color;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    background-color: transparent;
     border: none;
-    border-radius: effects.$radius-md;
+    border-radius: 0;
     font-size: typography.$font-size-sm;
     cursor: pointer;
-    @include mixins.transition(background-color);
+    @include mixins.transition(color);
+
     &:hover,
-    &:focus-visible {
-      background-color: colors.$pink-color;
-      color: colors.$white-color;
+    &:focus-within {
+      color: colors.$pink-color;
+    }
+
+    input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    &:has(input:focus-visible) .radioBullet {
+      box-shadow: effects.$shadow-focus;
     }
   }
 
-  .active {
-    background-color: colors.$pink-color;
-    color: colors.$white-color;
-    border: none;
+  .radioBullet {
+    width: 12px;
+    height: 12px;
+    border: 1px solid colors.$border-medium-color;
+    border-radius: effects.$radius-round;
+    background: colors.$white-color;
+    box-shadow: inset 0 0 0 3px colors.$white-color;
+  }
+
+  .sortButton input:checked + .radioBullet {
+    border-color: colors.$black-color;
+    background: colors.$black-color;
   }
 }

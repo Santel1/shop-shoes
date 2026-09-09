@@ -1,3 +1,7 @@
+@use "sass:math";
+
+$base-font-size: 16px;
+
 $font-size-h1: 48px;
 $font-size-h2: 36px;
 $font-size-h3: 28px;
@@ -22,3 +26,15 @@ $line-height-h2: 44px;
 $line-height-h3: 36px;
 
 $line-height-body: 24px;
+
+@function rem($value) {
+  @if unitless($value) {
+    @return math.div($value, $base-font-size) * 1rem;
+  }
+
+  @if unit($value) == "px" {
+    @return math.div($value, $base-font-size) * 1rem;
+  }
+
+  @return $value;
+}

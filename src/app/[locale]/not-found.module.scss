@@ -1,0 +1,180 @@
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/typography" as typography;
+
+.page {
+  position: relative;
+  display: flex;
+  min-height: min(760px, calc(100vh - 168px));
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 76px clamp(24px, 8vw, 132px);
+  background: colors.$final-bg-color;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 470px;
+  text-align: center;
+  animation: reveal 0.8s ease both;
+}
+
+.titleWrap {
+  position: relative;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  color: colors.$dark-text-color;
+  font-size: clamp(116px, 18vw, 226px);
+  font-weight: typography.$font-weight-bold;
+  letter-spacing: -0.08em;
+  line-height: 0.76;
+}
+
+.titleZero {
+  position: relative;
+  display: inline-grid;
+  width: 0.72em;
+  height: 0.72em;
+  margin: 0 -0.03em;
+  place-items: center;
+  border: 0.075em solid colors.$pink-color;
+  border-radius: 50%;
+  color: transparent;
+}
+
+.titleZero::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.18em;
+  height: 0.18em;
+  border-radius: 50%;
+  background: colors.$pink-color;
+  content: "";
+}
+
+.copy {
+  margin: 42px 0 30px;
+}
+
+.copy h2 {
+  color: colors.$dark-text-color;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: typography.$font-weight-bold;
+  line-height: 1.15;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 52px;
+  padding: 0 14px 0 14px;
+  border-radius: 999px;
+  background: colors.$dark-text-color;
+  color: colors.$white-text-color;
+  font-size: typography.$font-size-sm;
+  font-weight: typography.$font-weight-semibold;
+  @include mixins.transition(background-color);
+}
+
+.button:hover,
+.button:focus-visible {
+  background: colors.$pink-color;
+  color: colors.$white-text-color;
+  outline: none;
+}
+
+.arrow {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  fill: transparent;
+  stroke: white;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.star {
+  position: absolute;
+  color: colors.$dark-text-color;
+  font-size: 30px;
+  line-height: 1;
+  animation: spin 7s linear infinite;
+}
+
+.starOne {
+  top: 0;
+  left: -5%;
+}
+
+.starTwo {
+  top: 43%;
+  right: -10%;
+  color: colors.$pink-color;
+  font-size: 22px;
+  animation-duration: 5s;
+  animation-direction: reverse;
+}
+
+.starThree {
+  bottom: -15%;
+  left: 46%;
+  font-size: 18px;
+  animation-duration: 9s;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .page {
+    min-height: calc(100vh - 120px);
+    padding: 56px 24px 72px;
+  }
+
+  .copy {
+    margin: 30px 0 24px;
+  }
+
+  .starOne {
+    left: 3%;
+  }
+
+  .starTwo {
+    right: -1%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content,
+  .star,
+  .starOne,
+  .starTwo,
+  .starThree {
+    animation: none;
+  }
+  .button {
+    transition: none;
+  }
+}

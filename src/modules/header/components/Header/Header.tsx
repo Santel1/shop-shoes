@@ -25,7 +25,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isNotHome = pathname !== "/ua" && pathname !== "/en";
+  const isNotHome = pathname !== "/en";
 
   return (
     <header className={clsx(s.header, scrolled && s.scrolled)}>
@@ -78,12 +78,12 @@ export default function Header() {
 //     <header className={clsx(s.header, scrolled && s.scrolled)}>
 //       <MobileHeader
 //         isScrolled={scrolled}
-//         isNotHome={pathname !== "/ua" && pathname !== "/en"}
+//         isNotHome={pathname !== "/en"}
 //       />
 //       <DesktopNavLinks
 //         isScrolled={scrolled}
 //         setIsCartOpen={setIsCartOpen}
-//         isNotHome={pathname !== "/ua" && pathname !== "/en"}
+//         isNotHome={pathname !== "/en"}
 //       />
 //       <Cart isOpen={isCartOpen} setIsOpen={setIsCartOpen} />
 //     </header>

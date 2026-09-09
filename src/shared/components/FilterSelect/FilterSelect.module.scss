@@ -1,6 +1,7 @@
 @use "@/shared/styles/typography" as typography;
 @use "@/shared/styles/effects" as effects;
 @use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/mixins" as mixins;
 
 .filterGroup {
   display: flex;
@@ -10,13 +11,109 @@
     margin-bottom: 5px;
     font-size: typography.$font-size-sm;
   }
+}
 
-  .filterSelect {
-    padding: 8px;
-    border: 1px solid colors.$border-medium-color;
-    border-radius: effects.$radius-md;
-    font-size: typography.$font-size-sm;
-    width: 100%;
-    cursor: pointer;
+.customSelect {
+  position: relative;
+  min-width: 150px;
+  font-size: typography.$font-size-sm;
+}
+
+.selectTrigger {
+  display: flex;
+  width: 100%;
+  min-height: 34px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px;
+  border: 1px solid colors.$border-medium-color;
+  border-radius: effects.$radius-md;
+  background: colors.$white-color;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  @include mixins.transition(border-color);
+  &:focus-visible,
+  &:hover {
+    outline: none;
+    border-color: colors.$pink-color;
   }
+}
+
+.selectedText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.open .chevron {
+  transform: rotate(180deg);
+}
+
+.options {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  z-index: 2;
+  max-height: 360px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid colors.$border-medium-color;
+  border-radius: effects.$radius-md;
+  background: colors.$white-color;
+  box-shadow: effects.$shadow-soft;
+}
+
+.option {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+  background: none;
+  padding: 4px;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  @include mixins.transition(color);
+
+  &:hover,
+  &[aria-selected="true"] {
+    color: colors.$pink-color;
+  }
+}
+
+.checkbox {
+  width: 14px;
+  height: 14px;
+  border: 1px solid colors.$border-medium-color;
+  border-radius: effects.$radius-round;
+}
+
+.checkboxSelected {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-color: colors.$pink-color;
+  background: colors.$pink-color;
+}
+
+.checkIcon {
+  width: 12px;
+  height: 12px;
+  fill: colors.$white-color;
 }

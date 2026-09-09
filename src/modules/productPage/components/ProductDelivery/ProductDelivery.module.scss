@@ -1,0 +1,12 @@
+@use "@/shared/styles/colors" as colors;
+@use "@/shared/styles/typography" as typography;
+
+.deliveryInfo {
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+.deliveryText {
+  color: colors.$light-text-color;
+  font-size: typography.rem(13px);
+}
